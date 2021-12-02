@@ -21,7 +21,7 @@ using namespace std;
 // Return class represents the checkout action a patron can take.
 class Return : public PatronAction {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Return &);
+friend ostream & operator<<(ostream &, const Return &);
 
 public:
   // Constructor
