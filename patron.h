@@ -26,7 +26,7 @@ using namespace std;
 // Patron class represents a patron of the library
 class Patron : public Person {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Patron &);
+friend ostream & operator<<(ostream &, const Patron &);
 
 private:
   // Constructor
