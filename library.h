@@ -64,9 +64,7 @@ public:
   void performCommands(ifstream&);
 
 private:
-  BinTree fictionItems;  // library database of all items
-  BinTree childrensBooks;
-  BinTree periodicals;
+  BinTree itemTypes[10];
   unordered_map<int, Patron*> libraryPatrons; // stores all the library patrons
   ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items

@@ -21,7 +21,7 @@ using namespace std;
 //Periodicals class represents the periodicals genre/subclass of the book object
 class Periodical : public Book {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Periodical &);
+friend ostream & operator<<(ostream &, const Periodical &);
 
 public:
   // Constructor

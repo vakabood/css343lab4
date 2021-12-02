@@ -20,7 +20,7 @@ using namespace std;
 // Author class represents the author of a item in the library
 class Author : public Person {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Author &);
+friend ostream & operator<<(ostream &, const Author &);
 
 public:
   // Constructor - creates author with the given name

@@ -21,7 +21,7 @@ using namespace std;
 // ChildrensBook class represents a book from the children's book genre
 class ChildrensBook : public Book {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const ChildrensBook &);
+friend ostream & operator<<(ostream &, const ChildrensBook &);
 
 public:
   // Constructor - creates a children's book

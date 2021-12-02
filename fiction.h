@@ -22,7 +22,7 @@ using namespace std;
 //Fiction class represents the fiction genre/subclass of the book object
 class Fiction : public Book {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Fiction &);
+friend ostream & operator<<(ostream &, const Fiction &);
 
 public:
   // Sets the data for the member variables

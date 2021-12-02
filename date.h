@@ -15,7 +15,7 @@ using namespace std;
 // Date class represents the Dates containing Month and Year
 class Date {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Date &);
+friend ostream & operator<<(ostream &, const Date &);
 
 public:
   // Constructor - creates a date with year

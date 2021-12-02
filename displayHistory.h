@@ -22,7 +22,7 @@ using namespace std;
 // DisplayHistory class represents the history of actions a patron has taken
 class DisplayHistory : public PatronAction {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const DisplayHistory &);
+friend ostream & operator<<(ostream &, const DisplayHistory &);
 
 public:
   // Constructor - Creates a new DisplayHistory object

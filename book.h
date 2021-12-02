@@ -15,6 +15,7 @@
 #include <string>
 #include "author.h"
 #include "date.h"
+#include "item.h"
 
 
 // Only for class code, OK to use namespace
@@ -24,7 +25,7 @@ using namespace std;
 //Book class represents a book object
 class Book : public Item {
 // << operator - prints out the book
-virtual friend ostream & operator<<(ostream &, const Book &) = 0;
+friend ostream & operator<<(ostream &, const Book &);
 
 public:
   // Constructor - creates a book

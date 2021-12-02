@@ -17,6 +17,7 @@
 #include <iostream>
 #include "person.h"
 #include "patronAction.h"
+#include <list>
 
 
 // Only for class code, OK to use namespace

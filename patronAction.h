@@ -26,7 +26,7 @@ using namespace std;
 // PatronAction class represents actions a patron can take.
 class PatronAction {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const PatronAction &) = 0;
+friend ostream & operator<<(ostream &, const PatronAction &);
 
 public:
   // Constructor - Creates the PatronAction

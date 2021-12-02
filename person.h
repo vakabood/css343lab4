@@ -17,7 +17,7 @@ using namespace std;
 // Person class represents a generic person
 class Person {
 // << operator - prints class data to output stream
-virtual friend ostream & operator<<(ostream &, const Person &);
+friend ostream & operator<<(ostream &, const Person &);
 
 public:
   // Constructor
