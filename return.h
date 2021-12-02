@@ -38,6 +38,8 @@ public:
   
   // Performs the return action
   virtual void perform() const;
+
+  virtual void outputHelper(ostream&) const;
 };
 
 #endif
