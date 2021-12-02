@@ -21,10 +21,10 @@ using namespace std;
 // Item class represents the items in a library.
 class Item : public NodeData {
 public:
-  // Constructor - Creates the PatronAction
+  // Constructor - Creates the Item object
   Item();
 
-  // Destructor - Deallocates the PatronAction
+  // Destructor - Deallocates the Item object
   virtual ~Item();
 
   // Copy constructor

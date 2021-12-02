@@ -40,5 +40,4 @@ public:
 protected:
   string name;  // the person's name
 };
-
 #endif

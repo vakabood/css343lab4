@@ -19,7 +19,7 @@ friend ostream & operator<<(ostream &, const Date &);
 
 public:
   // Constructor - creates a date with year
-  Date(int year);
+  Date(int year = 0);
 
   // Constructor - creates a date with month and year
   Date(int month, int year);

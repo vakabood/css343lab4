@@ -24,7 +24,7 @@ friend ostream & operator<<(ostream &, const Author &);
 
 public:
   // Constructor - creates author with the given name
-  Author(string);
+  Author(string = "");
 
   // Copy constructor
   Author(const Author&);

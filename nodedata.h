@@ -22,15 +22,12 @@ public:
    // returns true if the data is set, false when bad data, i.e., is eof
    bool setData(istream&);                
 
-   bool operator==(const NodeData &) const;
-   bool operator!=(const NodeData &) const;
-   bool operator<(const NodeData &) const;
-   bool operator>(const NodeData &) const;
-   bool operator<=(const NodeData &) const;
-   bool operator>=(const NodeData &) const;
-
-private:
-   string data;          
+   virtual bool operator==(const NodeData &) const = 0;
+   virtual bool operator!=(const NodeData &) const = 0;
+   virtual bool operator<(const NodeData &) const = 0;
+   virtual bool operator>(const NodeData &) const = 0;
+   virtual bool operator<=(const NodeData &) const = 0;
+   virtual bool operator>=(const NodeData &) const = 0;     
 };
 
 #endif
