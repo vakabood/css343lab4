@@ -29,6 +29,9 @@ public:
   // Destructor - deallocates author
   virtual ~Author();
 
+  // operator<< helper
+  virtual ostream displayHelper() const;
+
   // Comparison operators
   virtual bool operator==(const Author &) const;
   virtual bool operator!=(const Author &) const;

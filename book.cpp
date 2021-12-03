@@ -28,6 +28,10 @@ int Book::getNumCheckedOut() const{
     return numCheckedOut;
 }
 
-//----------------------------------------------------------------------------
-
+//------------------------------------------------------------------------------
+// operator<<
+// Displays book information
+ostream& operator<<(ostream& os, const Book& item) {
+    item.displayHelper(os);
+}
 

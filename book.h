@@ -45,34 +45,30 @@ public:
   virtual Item* create() const = 0;
 
   // Sets the data for the member variables
-  virtual void setData(ifstream&) = 0;
+  virtual bool setData(ifstream&) = 0;
 
   // operator<< helper
-  virtual ostream displayHelper() const;
-
-  // = operator - returns Book after assigning this with the one in the 
-  //    parameter
-  virtual Book operator=(const Book &);
+  virtual void displayHelper(ostream &) const = 0;
 
   // == operator - returns if two books are equal
-  virtual bool operator==(const Book &) const = 0;
+  virtual bool operator==(const NodeData &) const = 0;
 
   // != operator - returns if two books are not equal
-  virtual bool operator!=(const Book &) const = 0;
+  virtual bool operator!=(const NodeData &) const = 0;
 
   // < operator - returns true if current book is less than given book
-  virtual bool operator<(const Book &) const = 0;
+  virtual bool operator<(const NodeData &) const = 0;
 
   // > operator - returns true if current book is greater than given book
-  virtual bool operator>(const Book &) const = 0;
+  virtual bool operator>(const NodeData &) const = 0;
 
   // <= operator - returns true if current book is less than or equal to 
   //    the given book
-  virtual bool operator<=(const Book &) const = 0;
+  virtual bool operator<=(const NodeData &) const = 0;
 
   // >= operator - returns true if current book is greater than or equal to
   //    the given book
-  virtual bool operator>=(const Book &) const = 0;
+  virtual bool operator>=(const NodeData &) const = 0;
 
 protected:
   Author author;  // the author of the book

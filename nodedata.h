@@ -14,19 +14,21 @@ class NodeData {
 public:
    NodeData();          // default constructor, data is set to an empty string
    ~NodeData();          
-   
-   virtual NodeData& operator=(const NodeData &) = 0; 
 
    // set class data from data file
    // returns true if the data is set, false when bad data, i.e., is eof
-   virtual bool setData(istream&) = 0;                
+   virtual bool setData(ifstream&) = 0;                
 
    virtual bool operator==(const NodeData &) const = 0;
    virtual bool operator!=(const NodeData &) const = 0;
    virtual bool operator<(const NodeData &) const = 0;
    virtual bool operator>(const NodeData &) const = 0;
    virtual bool operator<=(const NodeData &) const = 0;
-   virtual bool operator>=(const NodeData &) const = 0;     
+   virtual bool operator>=(const NodeData &) const = 0; 
+
+private:
+  // operator<< helper
+  virtual void displayHelper(ostream &) const = 0;    
 };
 
 #endif
