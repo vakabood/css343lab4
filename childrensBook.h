@@ -36,6 +36,9 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const ChildrensBook &) const;
 

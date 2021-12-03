@@ -25,8 +25,20 @@ class Fiction : public Book {
 friend ostream & operator<<(ostream &, const Fiction &);
 
 public:
+  // Default constructor
+  Fiction();
+
+  // Destructor
+  virtual ~Fiction();
+
+  // Creates an Item that is a fiction book
+  virtual Item* create() const;
+
   // Sets the data for the member variables
   virtual void setData(ifstream&);
+  
+  // operator<< helper
+  virtual ostream displayHelper() const;
   
   // Comparison operators
   virtual bool operator==(const Fiction &) const;

@@ -20,6 +20,9 @@ using namespace std;
 //---------------------------------------------------------------------------
 // Item class represents the items in a library.
 class Item : public NodeData {
+
+friend ostream & operator<<(ostream &, const Item &);
+
 public:
   // Constructor - Creates the Item object
   Item();
@@ -27,33 +30,13 @@ public:
   // Destructor - Deallocates the Item object
   virtual ~Item();
 
-  // Copy constructor
-  Item(const Item&);
-
   // creates an item
   virtual Item* create() const = 0;
 
   // Sets the data for the member variables
-  virtual void setData(ifstream&);
+  virtual void setData(ifstream&) = 0;
 
-  // == operator - returns if two items are equal
-  virtual bool operator==(const Item &) const = 0;
-
-  // != operator - returns if two items are not equal
-  virtual bool operator!=(const Item &) const = 0;
-
-  // < operator - returns true if current item is less than given item
-  virtual bool operator<(const Item &) const = 0;
-
-  // > operator - returns true if current item is greater than given item
-  virtual bool operator>(const Item &) const = 0;
-
-  // <= operator - returns true if current item is less than or equal to the given item
-  virtual bool operator<=(const Item &) const = 0;
-
-  // >= operator - returns true if current item is greater than or equal to given item
-  virtual bool operator>=(const Item &) const = 0;
-
+  // operator<< helper
+  virtual ostream displayHelper() const;
 };
-
 #endif

@@ -9,17 +9,6 @@ Book::Book() {
 }
 
 //----------------------------------------------------------------------------
-// Copy Constructor
-Book::Book(const Book& book) {
-    author = book.author;
-    dateOfPublication = book.dateOfPublication;
-    bookTitle = book.bookTitle;
-    bookFormat = book.bookFormat;
-    totalCopies = book.totalCopies;
-    numCheckedOut = book.numCheckedOut;
-}
-
-//----------------------------------------------------------------------------
 // Destructor
 Book::~Book() {
     // nothing to do

@@ -36,8 +36,10 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
   
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // Performs the return action
   virtual void perform() const;
 };
-
 #endif

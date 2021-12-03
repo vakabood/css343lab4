@@ -26,9 +26,6 @@ public:
   // Constructor - creates author with the given name
   Author(string = "");
 
-  // Copy constructor
-  Author(const Author&);
-
   // Destructor - deallocates author
   virtual ~Author();
 

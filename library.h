@@ -40,13 +40,13 @@ public:
   virtual ~Library();
 
   // Adds item to the library database
-  bool addItem(Item);
+  bool addItem(Item&);
 
   // Removes item from library database
-  bool removeItem(Item);
+  bool removeItem(Item&);
 
   // Finds the item in library database
-  NodeData* findItem(NodeData) const;
+  Item* findItem(Item&) const;
 
   // Adds a patron to library
   bool addPatron(Patron);

@@ -23,12 +23,12 @@ public:
   // Constructor
   Person(string);
 
-  // Copy COnstructor
-  Person(const Person&);
-
   // Destructor
   virtual ~Person();
 
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // Comparison operators
   virtual bool operator==(const Person &) const;
   virtual bool operator!=(const Person &) const;

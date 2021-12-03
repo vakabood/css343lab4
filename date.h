@@ -24,9 +24,9 @@ public:
   // Constructor - creates a date with month and year
   Date(int month, int year);
 
-  // Copy constructor
-  Date(const Date&);
-
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // Comparison operators
   virtual bool operator==(const Date &) const;
   virtual bool operator!=(const Date &) const;

@@ -45,11 +45,14 @@ public:
   virtual Item getAssociatedItem() const;
 
   // Setter - sets the associated item
-  virtual bool setAssociatedItem(Item);
+  virtual bool setAssociatedItem(Item&);
 
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // creates the patron action
   virtual PatronAction* create() const = 0;
 

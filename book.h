@@ -31,9 +31,6 @@ public:
   // Constructor - creates a book
   Book();
 
-  // Copy constructor
-  Book(const Book&);
-
   // Destructor - deallocates the book
   virtual ~Book() = 0;
 
@@ -48,7 +45,10 @@ public:
   virtual Item* create() const = 0;
 
   // Sets the data for the member variables
-  virtual void setData(ifstream&);
+  virtual void setData(ifstream&) = 0;
+
+  // operator<< helper
+  virtual ostream displayHelper() const;
 
   // = operator - returns Book after assigning this with the one in the 
   //    parameter

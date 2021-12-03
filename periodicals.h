@@ -30,9 +30,15 @@ public:
   // Destructor
   virtual ~Periodical();
 
+  // Creates an Item that is a periodical
+  virtual Item* create() const;
+
   // Sets the data for the member variables
   virtual void setData(ifstream&) const;
 
+  // operator<< helper
+  virtual ostream displayHelper() const;
+  
   // Comparison operators
   virtual bool operator==(const Periodical &) const;
   virtual bool operator!=(const Periodical &) const;

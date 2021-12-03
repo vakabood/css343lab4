@@ -29,19 +29,17 @@ class Patron : public Person {
 // << operator - prints class data to output stream
 friend ostream & operator<<(ostream &, const Patron &);
 
-private:
-  // Constructor
+public:
+// Constructor
   Patron();
 
   // Destructor
-  ~Patron();
+  virtual ~Patron();
 
-  // Copy Constructor
-  Patron(Patron&);
+  // operator<< helper
+  virtual ostream displayHelper() const;
   
-  // Defines this to Patron
-  virtual Patron operator=(const Patron&);
-  
+private:
   list<PatronAction*> history;   // the patron's past actions
   int patronId;    // unique 4 digit id number
 };
