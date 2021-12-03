@@ -39,6 +39,8 @@ public:
   // operator<< helper
   virtual ostream displayHelper() const;
   
+  // getter for patronId
+  int getPatronId() const;
 private:
   list<PatronAction*> history;   // the patron's past actions
   int patronId;    // unique 4 digit id number
