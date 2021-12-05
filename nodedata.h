@@ -20,11 +20,7 @@ public:
    virtual bool setData(ifstream&) = 0;                
 
    virtual bool operator==(const NodeData &) const = 0;
-   virtual bool operator!=(const NodeData &) const = 0;
    virtual bool operator<(const NodeData &) const = 0;
-   virtual bool operator>(const NodeData &) const = 0;
-   virtual bool operator<=(const NodeData &) const = 0;
-   virtual bool operator>=(const NodeData &) const = 0; 
 
 private:
   // operator<< helper

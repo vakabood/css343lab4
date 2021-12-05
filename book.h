@@ -53,30 +53,15 @@ public:
   // == operator - returns if two books are equal
   virtual bool operator==(const NodeData &) const = 0;
 
-  // != operator - returns if two books are not equal
-  virtual bool operator!=(const NodeData &) const = 0;
-
   // < operator - returns true if current book is less than given book
   virtual bool operator<(const NodeData &) const = 0;
 
-  // > operator - returns true if current book is greater than given book
-  virtual bool operator>(const NodeData &) const = 0;
-
-  // <= operator - returns true if current book is less than or equal to 
-  //    the given book
-  virtual bool operator<=(const NodeData &) const = 0;
-
-  // >= operator - returns true if current book is greater than or equal to
-  //    the given book
-  virtual bool operator>=(const NodeData &) const = 0;
-
 protected:
-  Author author;  // the author of the book
-  Date dateOfPublication; // the date of publication of the book
+  string author;  // the author of the book
+  int year; // the year of publication of the book
+  int month; // the month of publication of the book
   string bookTitle; // the title of the book
   char bookFormat; // the format --> 'H' = hardcover
-  int totalCopies; // number of copies of the book owned by the library
-  int numCheckedOut; // number of copies checked out
 };
 
 #endif

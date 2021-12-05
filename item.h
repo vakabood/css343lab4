@@ -30,14 +30,29 @@ public:
   // Destructor - Deallocates the Item object
   virtual ~Item();
 
+  void incrementCopies();
+
+  void decrementCopies();
+
+  int getNumOfCopiesIn();
+
+  int getNumOfCopiesOut();
+
   // creates an item
   virtual Item* create() const = 0;
 
   // Sets the data for the member variables
   virtual bool setData(ifstream&) = 0;
 
-private:
   // operator<< helper
   virtual void displayHelper(ostream &) const = 0;
+
+  virtual bool operator<(const NodeData&) const = 0;
+
+  virtual bool operator==(const NodeData&) const = 0;
+
+private:
+  int numOfCopiesIn;
+  int totalCopies; // number of copies of the book owned by the library
 };
 #endif

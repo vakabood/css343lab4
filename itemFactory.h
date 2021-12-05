@@ -12,7 +12,13 @@
 #ifndef _ITEM_FACTORY_H
 #define _ITEM_FACTORY_H
 
-using namespace std;
+#include "item.h"
+#include "childrensBook.h"
+#include "fiction.h"
+#include "periodicals.h"
+
+
+const int MAXITEMTYPES = 26; 
 
 // Item Factory class is a factory for creating different types of items 
 class ItemFactory {
@@ -25,10 +31,10 @@ public:
 
   // Creates and returns a new instance of an Item. Takes in a char
   // representing an item type (C for childrens book)
-  Item* createIt(char) const;
+  Item* createIt(char, ifstream &) const;
   
 private:
-  Item* itemTemplates[26]; // array with a size of 26 to contain 
+  Item* itemTemplates[MAXITEMTYPES]; // array with a size of 26 to contain 
                            // different types of item templates
 
   // hashing function to identify the key of the action that needs to be 

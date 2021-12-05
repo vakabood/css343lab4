@@ -42,24 +42,9 @@ public:
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const NodeData &) const;
 
-  // != operator - returns if two children's books are not equal
-  virtual bool operator!=(const NodeData &) const;
-
   // < operator - returns true if current children's book is less than 
   //    given children's book
   virtual bool operator<(const NodeData &) const;
-
-  // > operator - returns true if current children's book is greater than 
-  //    given children's book
-  virtual bool operator>(const NodeData &) const;
-
-  // <= operator - returns true if current children's book is less than or 
-  //    equal to the given children's book
-  virtual bool operator<=(const NodeData &) const;
-
-  // >= operator - returns true if current children's book is greater than or 
-  //    equal to given children's book
-  virtual bool operator>=(const NodeData &) const;
 };
 
 #endif

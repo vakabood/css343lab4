@@ -34,18 +34,14 @@ public:
   virtual Item* create() const;
 
   // Sets the data for the member variables
-  virtual void setData(ifstream&) const;
+  virtual bool setData(ifstream&);
 
   // operator<< helper
-  virtual ostream displayHelper() const;
+  virtual void displayHelper(ostream &) const;
   
   // Comparison operators
-  virtual bool operator==(const Periodical &) const;
-  virtual bool operator!=(const Periodical &) const;
-  virtual bool operator<(const Periodical &) const;
-  virtual bool operator>(const Periodical &) const;
-  virtual bool operator<=(const Periodical &) const;
-  virtual bool operator>=(const Periodical &) const;
+  virtual bool operator==(const NodeData &) const;
+  virtual bool operator<(const NodeData &) const;
 };
 
 #endif
