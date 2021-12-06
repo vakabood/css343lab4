@@ -35,7 +35,9 @@ public:
   virtual Item* create() const;
 
   // Sets the data for the member variables
-  virtual bool setData(ifstream&);
+  //virtual void setData(ifstream&);
+
+  virtual void setCommandData(ifstream&);
   
   // operator<< helper
   virtual void displayHelper(ostream &) const;

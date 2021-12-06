@@ -17,7 +17,7 @@ public:
 
    // set class data from data file
    // returns true if the data is set, false when bad data, i.e., is eof
-   virtual bool setData(ifstream&) = 0;                
+   virtual void setData(ifstream&) = 0;                
 
    virtual bool operator==(const NodeData &) const = 0;
    virtual bool operator<(const NodeData &) const = 0;

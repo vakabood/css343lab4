@@ -3,7 +3,7 @@
 //------------------------------------------------------------------------------
 // Constructor
 Item::Item() { 
-    numOfCopies = 0;
+    numOfCopiesIn = 0;
 };
 
 //------------------------------------------------------------------------------
@@ -14,14 +14,14 @@ Item::~Item() { };
 // incrementCopies
 // Increments the number of copies of the item
 void Item::incrementCopies() {
-    numOfCopies++;
+    numOfCopiesIn++;
 };
 
 //------------------------------------------------------------------------------
 // decrementCopies
 // Decrements the number of copies of the item
 void Item::decrementCopies() {
-    numOfCopies--;
+    numOfCopiesIn--;
 };
 
 //------------------------------------------------------------------------------

@@ -35,18 +35,24 @@ public:
   virtual ~Book() = 0;
 
   // returns the number of copies of the book the library owns
-  int getTotalCopies() const;
+  string getAuthor() const;
 
   // returns the number of copies of the book that are currently 
   //    checked out
-  int getNumCheckedOut() const; 
+  int getYear() const; 
+
+  string getBookTitle() const;
 
   // creates an Item that is a Book
   virtual Item* create() const = 0;
 
   // Sets the data for the member variables
-  virtual bool setData(ifstream&) = 0;
+  virtual void setData(ifstream&);
 
+  virtual void setCommandData(ifstream&) = 0;
+
+  virtual void display() const;
+  
   // operator<< helper
   virtual void displayHelper(ostream &) const = 0;
 
@@ -59,7 +65,6 @@ public:
 protected:
   string author;  // the author of the book
   int year; // the year of publication of the book
-  int month; // the month of publication of the book
   string bookTitle; // the title of the book
   char bookFormat; // the format --> 'H' = hardcover
 };

@@ -15,9 +15,10 @@
 #define _PATRON_H
 
 #include <iostream>
-#include "person.h"
-#include "patronAction.h"
-#include <list>
+#include <vector>
+#include <string>
+
+class PatronAction;
 
 
 // Only for class code, OK to use namespace
@@ -25,7 +26,7 @@ using namespace std;
 
 //---------------------------------------------------------------------------
 // Patron class represents a patron of the library
-class Patron : public Person {
+class Patron {
 // << operator - prints class data to output stream
 friend ostream & operator<<(ostream &, const Patron &);
 
@@ -36,14 +37,26 @@ public:
   // Destructor
   virtual ~Patron();
 
+  virtual bool setData(ifstream&);
+
+  virtual void addCommandToHistory(PatronAction);
+
+  virtual void displayHistory() const;
+
   // operator<< helper
   virtual ostream displayHelper() const;
   
-  // getter for patronId
+  virtual bool operator==(const Patron &) const;
+  virtual bool operator!=(const Patron &) const;
+  
+  // getters for class data
   int getPatronId() const;
+  string getLastName() const;
+  string getFirstName() const;  
 private:
-  list<PatronAction*> history;   // the patron's past actions
+  vector<PatronAction> history;   // the patron's past actions
   int patronId;    // unique 4 digit id number
+  string lastName, firstName;
 };
 
 #endif

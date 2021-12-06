@@ -4,8 +4,10 @@ using namespace std;
 //----------------------------------------------------------------------------
 // Default Constructor
 Book::Book() {
-    totalCopies = 0;
-    numCheckedOut = 0;
+    author = "";
+    year = 0;
+    bookTitle = "";
+    bookFormat = 'H';
 }
 
 //----------------------------------------------------------------------------
@@ -15,17 +17,43 @@ Book::~Book() {
 }
 
 //----------------------------------------------------------------------------
-// getTotalCopies
-// returns the total number of copies of the book
-int Book::getTotalCopies() const{
-    return totalCopies;
+// getAuthor
+// returns the author of the book
+string Book::getAuthor() const{
+    return author;
 }
 
 //----------------------------------------------------------------------------
-// getNumCheckedOut
-// returns the number of copies checked out
-int Book::getNumCheckedOut() const{
-    return numCheckedOut;
+// getYear
+// returns the year of the book
+int Book::getYear() const{
+    return year;
+}
+
+//----------------------------------------------------------------------------
+// getTitle
+// returns the title of the book
+string Book::getBookTitle() const{
+    return bookTitle;
+}
+
+//----------------------------------------------------------------------------
+// setData
+// sets the data of the book
+void Book::setData(ifstream& inFile) {
+    inFile.get();
+    getline(inFile, author, ',');
+
+    inFile.get();
+    getline(inFile, bookTitle, ',');
+
+    inFile.get();
+    inFile >> year;
+}
+
+void Book::display() const {
+    cout << left << setw(20) << bookTitle << setw(16) << author << setw(4) << 
+        year << endl;
 }
 
 //------------------------------------------------------------------------------
