@@ -30,16 +30,20 @@ public:
   // Destructor - deallocates children's book
   virtual ~ChildrensBook();
 
+  string getAuthor() const;
+
   // Creates an Item that is a children's book
   virtual Item* create() const;
 
   // Sets the data for the member variables
-  //virtual void setData(ifstream&);
+  virtual void setData(ifstream&);
 
   virtual void setCommandData(ifstream&);
 
   // operator<< helper
   virtual void displayHelper(ostream &) const;
+
+  virtual ostream & display(ostream &) const;
   
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const NodeData &) const;
@@ -47,6 +51,9 @@ public:
   // < operator - returns true if current children's book is less than 
   //    given children's book
   virtual bool operator<(const NodeData &) const;
+
+private:
+  string author;
 };
 
 #endif

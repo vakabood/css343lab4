@@ -53,7 +53,7 @@ public:
 
   virtual bool operator==(const NodeData&) const = 0;
 
-private:
+protected:
   int numOfCopiesIn;
   int totalCopies; // number of copies of the book owned by the library
 };

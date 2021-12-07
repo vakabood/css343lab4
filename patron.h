@@ -37,9 +37,9 @@ public:
   // Destructor
   virtual ~Patron();
 
-  virtual bool setData(ifstream&);
+  virtual void setData(istream&);
 
-  virtual void addCommandToHistory(PatronAction);
+  virtual void addCommandToHistory(PatronAction&);
 
   virtual void displayHistory() const;
 

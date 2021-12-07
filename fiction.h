@@ -35,16 +35,21 @@ public:
   virtual Item* create() const;
 
   // Sets the data for the member variables
-  //virtual void setData(ifstream&);
+  virtual void setData(ifstream&);
 
   virtual void setCommandData(ifstream&);
   
+  virtual ostream & display(ostream &) const;
+
   // operator<< helper
   virtual void displayHelper(ostream &) const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;
   virtual bool operator<(const NodeData &) const;
+
+private: 
+  string author;  // the author of the book
 };
 
 #endif

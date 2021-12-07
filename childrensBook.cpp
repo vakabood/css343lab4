@@ -16,6 +16,13 @@ ChildrensBook::~ChildrensBook() {
 }
 
 //------------------------------------------------------------------------------
+// getAuthor
+// returns author of book
+string ChildrensBook::getAuthor() const{
+    return author;
+}
+
+//------------------------------------------------------------------------------
 // create
 // Creates and returns a new ChildrensBook object
 Item* ChildrensBook::create() const {
@@ -23,12 +30,40 @@ Item* ChildrensBook::create() const {
 }
 
 //------------------------------------------------------------------------------
+// setData
+// sets data for book
+void ChildrensBook::setData(ifstream& infile) {
+    infile.get();
+    getline(infile, author, ',');
+
+    infile.get();
+    getline(infile, bookTitle, ',');
+
+    infile.get();
+    infile >> year;
+}
+
+//------------------------------------------------------------------------------
 // setCommandData
 // Sets the data of the ChildrensBook object
 void ChildrensBook::setCommandData(ifstream& inFile) {
     inFile.get();
+    inFile >> bookFormat;
+
+    inFile.get();
     getline(inFile, bookTitle, ',');
-    inFile >> year;
+
+    inFile.get();
+    getline(inFile, author, ',');
+}
+
+//------------------------------------------------------------------------------
+// display
+// Displays the data of the ChildrensBook object
+ostream& ChildrensBook::display(ostream& out) const {
+    out << left << numOfCopiesIn << setw(22) << author << setw(22) << bookTitle 
+    << setw(4) <<  year << setw(4) << bookFormat << endl;
+    return out;
 }
 
 //------------------------------------------------------------------------------
@@ -53,4 +88,11 @@ bool ChildrensBook::operator<(const NodeData& bookToCompare) const {
 bool ChildrensBook::operator==(const NodeData& bookToCompare) const {
     const ChildrensBook& book = dynamic_cast<const ChildrensBook&>(bookToCompare);
     return bookTitle == book.bookTitle && author == book.author;
+}
+
+//------------------------------------------------------------------------------
+// operator<<
+// Displays book information
+ostream& operator<<(ostream& os, const ChildrensBook& item) {
+    return item.display(os);
 }

@@ -30,11 +30,17 @@ public:
   // Destructor
   virtual ~Periodical();
 
+  int getMonth() const;
+
   // Creates an Item that is a periodical
   virtual Item* create() const;
 
   // Sets the data for the member variables
   virtual void setData(ifstream&);
+
+  virtual void setCommandData(ifstream&);
+
+  virtual ostream & display(ostream &) const;
 
   // operator<< helper
   virtual void displayHelper(ostream &) const;

@@ -15,7 +15,7 @@
 #include "item.h"
 #include "childrensBook.h"
 #include "fiction.h"
-#include "periodicals.h"
+#include "periodical.h"
 
 
 const int MAXITEMTYPES = 26; 
