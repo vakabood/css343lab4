@@ -42,7 +42,7 @@ public:
   virtual bool setAssociatedPatron(Patron);
 
   // Getter - gets the associated item
-  virtual Item getAssociatedItem() const;
+  virtual Item& getAssociatedItem() const;
 
   // Setter - sets the associated item
   virtual bool setAssociatedItem(Item&);

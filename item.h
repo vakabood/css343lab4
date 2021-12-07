@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include "nodedata.h"
+#include <iomanip>
 
 // Only for class code, OK to use namespace
 using namespace std;
