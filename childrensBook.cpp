@@ -60,10 +60,9 @@ void ChildrensBook::setCommandData(ifstream& inFile) {
 //------------------------------------------------------------------------------
 // display
 // Displays the data of the ChildrensBook object
-ostream& ChildrensBook::display(ostream& out) const {
-    out << left << numOfCopiesIn << setw(22) << author << setw(22) << bookTitle 
+void ChildrensBook::display() const{
+    cout << left << numOfCopiesIn << setw(22) << author << setw(22) << bookTitle 
     << setw(4) <<  year << setw(4) << bookFormat << endl;
-    return out;
 }
 
 //------------------------------------------------------------------------------
@@ -93,6 +92,8 @@ bool ChildrensBook::operator==(const NodeData& bookToCompare) const {
 //------------------------------------------------------------------------------
 // operator<<
 // Displays book information
-ostream& operator<<(ostream& os, const ChildrensBook& item) {
-    return item.display(os);
+ostream& operator<<(ostream& out, const ChildrensBook& item) {
+    out << left << item.numOfCopiesIn << setw(22) << item.author << setw(22) << item.bookTitle 
+    << setw(4) <<  item.year << setw(4) << item.bookFormat << endl;
+    return out;
 }

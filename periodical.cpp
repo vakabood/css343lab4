@@ -58,10 +58,9 @@ void Periodical::setCommandData(ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // display
-ostream& Periodical::display(ostream& out) const {
-    out << left << numOfCopiesIn << setw(22) << bookTitle << setw(22) <<
+void Periodical::display() const {
+    cout << left << numOfCopiesIn << setw(22) << bookTitle << setw(22) <<
     month << setw(10) << year;
-    return out;
 }
 
 //---------------------------------------------------------------------------
@@ -93,7 +92,7 @@ bool Periodical::operator==(const NodeData& bookToCompare) const {
 // operator<<
 // Displays book information
 ostream& operator<<(ostream& os, const Periodical& item) {
-    return item.display(os);
+    return os;
 }
 
 

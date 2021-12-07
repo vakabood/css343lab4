@@ -50,7 +50,7 @@ public:
 
   virtual void setCommandData(ifstream&) = 0;
 
-  virtual ostream & display(ostream &) const = 0;
+  virtual void display() const = 0;
   
   // operator<< helper
   //virtual void displayHelper(ostream &) const = 0;

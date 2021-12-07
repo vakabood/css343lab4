@@ -43,7 +43,7 @@ public:
   // operator<< helper
   //virtual void displayHelper(ostream &) const;
 
-  virtual ostream & display(ostream &) const;
+  virtual void display() const;
   
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const NodeData &) const;

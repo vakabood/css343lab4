@@ -336,7 +336,7 @@ ostream& operator<<(ostream& output, const BinTree& treeToPrint) {
 void BinTree::inorderHelper(Node* curr) const {
 	if (curr != nullptr) {
         inorderHelper(curr->left);
-        cout << *curr->data << " ";
+        curr->data->display();
         inorderHelper(curr->right);
 	}
 }

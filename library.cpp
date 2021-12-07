@@ -23,7 +23,6 @@ void Library::buildLibrary(ifstream& infile) {
             itemPtr->setData(infile);
 
             bool success = itemTypes[bookType - 'A'].insert(itemPtr);
-
             if (!success) {
                 delete itemPtr;
             }
