@@ -7,6 +7,7 @@ ChildrensBook::ChildrensBook() : Book(){
     bookTitle = "";
     year = 0;
     bookFormat = 'H';
+    totalCopies = 5;
 }
 
 //------------------------------------------------------------------------------
@@ -61,8 +62,9 @@ void ChildrensBook::setCommandData(ifstream& inFile) {
 // display
 // Displays the data of the ChildrensBook object
 void ChildrensBook::display() const{
-    cout << left << numOfCopiesIn << setw(22) << author << setw(22) << bookTitle 
-    << setw(4) <<  year << setw(4) << bookFormat << endl;
+    cout << left << setw(5) << totalCopies << setw(22) <<
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(15) << 
+    author.substr(0, MAX_AUTHOR_LENGTH) << setw(5) << year << endl;
 }
 
 //------------------------------------------------------------------------------

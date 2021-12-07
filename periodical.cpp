@@ -9,6 +9,7 @@ Periodical::Periodical() : Book() {
     year = 0;
     month = 0;
     bookFormat = 'H';
+    totalCopies = 1;
 }
 
 //---------------------------------------------------------------------------
@@ -59,8 +60,9 @@ void Periodical::setCommandData(ifstream& infile) {
 //---------------------------------------------------------------------------
 // display
 void Periodical::display() const {
-    cout << left << numOfCopiesIn << setw(22) << bookTitle << setw(22) <<
-    month << setw(10) << year;
+    cout << left << setw(5) << totalCopies << setw(22) << 
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(15) << 
+    month << setw(5) << year << endl;
 }
 
 //---------------------------------------------------------------------------

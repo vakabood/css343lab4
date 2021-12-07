@@ -62,6 +62,9 @@ public:
   virtual bool operator<(const NodeData &) const = 0;
 
 protected:
+  static const int MAX_TITLE_LENGTH = 22;
+  static const int MAX_AUTHOR_LENGTH = 15;
+
   int year; // the year of publication of the book
   string bookTitle; // the title of the book
   string bookFormat; // the format --> 'H' = hardcover
