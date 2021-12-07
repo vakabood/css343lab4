@@ -36,10 +36,12 @@ string Book::getBookFormat() const{
     return bookFormat;
 }
 
+/*
 //------------------------------------------------------------------------------
 // operator<<
 // Displays book information
 ostream& operator<<(ostream& os, const Book& item) {
     item.displayHelper(os);
 }
+*/
 

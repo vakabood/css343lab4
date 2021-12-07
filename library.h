@@ -41,33 +41,35 @@ public:
   virtual ~Library();
 
   // Adds item to the library database
-  bool addItem(Item&);
+  //bool addItem(Item&);
 
   // Removes item from library database
-  bool removeItem(Item&);
+  //bool removeItem(Item&);
 
   // Finds the item in library database
-  Item* findItem(Item&) const;
+  //Item* findItem(Item&) const;
 
   // Adds a patron to library
-  bool addPatron(Patron);
+  //bool addPatron(Patron);
 
   // Removes a patron from library
-  bool removePatron(Patron);
+  //bool removePatron(Patron);
 
   // Mass build of library items using datafile
   void buildLibrary(ifstream&);
 
   // Mass build library patrons using datafile
-  void buildPatrons(ifstream&);
+  //void buildPatrons(ifstream&);
 
   // Performs patron actions
-  void performCommands(ifstream&);
+  //void performCommands(ifstream&);
+
+  void display() const;
 
 private:
-  BinTree itemTypes[10];
-  HashTable libraryPatrons; // stores all the library patrons
-  ActionFactory patronActionFactory;  // factory to create patron actions
+  BinTree itemTypes[26];
+  //HashTable libraryPatrons; // stores all the library patrons
+  //ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items
   char bookType;
 };

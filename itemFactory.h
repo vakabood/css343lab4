@@ -31,7 +31,7 @@ public:
 
   // Creates and returns a new instance of an Item. Takes in a char
   // representing an item type (C for childrens book)
-  Item* createIt(char, ifstream &) const;
+  Item* createIt(char) const;
   
 private:
   Item* itemTemplates[MAXITEMTYPES]; // array with a size of 26 to contain 

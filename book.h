@@ -53,7 +53,7 @@ public:
   virtual ostream & display(ostream &) const = 0;
   
   // operator<< helper
-  virtual void displayHelper(ostream &) const = 0;
+  //virtual void displayHelper(ostream &) const = 0;
 
   // == operator - returns if two books are equal
   virtual bool operator==(const NodeData &) const = 0;

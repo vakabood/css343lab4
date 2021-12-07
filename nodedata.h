@@ -22,9 +22,10 @@ public:
    virtual bool operator==(const NodeData &) const = 0;
    virtual bool operator<(const NodeData &) const = 0;
 
+   virtual ostream & display(ostream &) const = 0;
 private:
   // operator<< helper
-  virtual void displayHelper(ostream &) const = 0;    
+  //virtual void displayHelper(ostream &) const = 0;    
 };
 
 #endif

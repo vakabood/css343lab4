@@ -11,10 +11,9 @@ ItemFactory::ItemFactory() {
         itemTemplates[i] = nullptr;    
     }
 
-    itemTemplates[0] = new ChildrensBook();
-    itemTemplates[1] = new Fiction();
-    itemTemplates[2] = new Periodical();
-
+    itemTemplates[2] = new ChildrensBook();
+    itemTemplates[5] = new Fiction();
+    itemTemplates[15] = new Periodical();
 }
 
 //---------------------------------------------------------------------------
@@ -32,7 +31,7 @@ ItemFactory::~ItemFactory() {
 
 //---------------------------------------------------------------------------
 // Creates an item based on the item type
-Item* ItemFactory::createIt(char ch, ifstream& infile) const{
+Item* ItemFactory::createIt(char ch) const{
     int index = hash(ch);
     if (itemTemplates[index] == nullptr) {
         return nullptr;

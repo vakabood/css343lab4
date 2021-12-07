@@ -14,6 +14,7 @@ BinTree::BinTree() {
     root = nullptr;
 }
 
+/*
 //----------------------------------------------------------------------------
 // Copy Constructor
 // @param treeToCopy: The tree to copy
@@ -21,6 +22,7 @@ BinTree::BinTree() {
 BinTree::BinTree(const BinTree &treeToCopy) {
 	copyTreeHelper(treeToCopy.root, root);
 }
+
 
 // @note This function is called by the = assignment operator as well 
 // as the copy constructor.
@@ -36,7 +38,7 @@ void BinTree::copyTreeHelper(Node * treeToCopy, Node *& newRoot) {
 		newRoot = nullptr;
 	}
 }
-
+*/
 //----------------------------------------------------------------------------
 // Destructor
 // Deletes all nodes in the tree.
@@ -339,6 +341,7 @@ void BinTree::inorderHelper(Node* curr) const {
 	}
 }
 
+/*
 //----------------------------------------------------------------------------
 // operator=
 // @param treeToDeepCopy: The tree to assign to this tree.
@@ -351,7 +354,7 @@ BinTree& BinTree::operator=(const BinTree &treeToDeepCopy) {
 	}
 	return *this;
 }	
-
+*/
 //----------------------------------------------------------------------------
 // operator==
 // @param treeToCompare: The tree to compare to this tree.

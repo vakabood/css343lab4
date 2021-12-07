@@ -39,7 +39,7 @@ public:
 
     // copy constructor: one parameter, constructs a tree that is a copy of 
     // the parameter				
-	BinTree(const BinTree &);		
+	//BinTree(const BinTree &);		
 
     // destructor: empties and deallocates the tree	
 	~BinTree();						
@@ -67,7 +67,7 @@ public:
 	
 
     // assignment operator: one parameter, assigns the parameter to the tree
-	BinTree& operator=(const BinTree &);		
+	//BinTree& operator=(const BinTree &);		
 	
     // boolean comparison operators
 	bool operator==(const BinTree &) const;   // is object == parameter?
@@ -85,7 +85,7 @@ private:
 
     // private member functions for the BinTree class (all recursive helpers)
     void inorderHelper(Node*) const;  // recursive inorder traversal helper
-    void copyTreeHelper(Node*, Node*&);  // recursive copyTree helper for copy
+    //void copyTreeHelper(Node*, Node*&);  // recursive copyTree helper for copy
                                    // constructor and assignment operator  
     void emptyTreeHelper(Node*);   // recursive emptyTree helper for 
                                    // destructor and makeEmpty

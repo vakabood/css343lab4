@@ -42,7 +42,7 @@ public:
   virtual ostream & display(ostream &) const;
 
   // operator<< helper
-  virtual void displayHelper(ostream &) const;
+  //virtual void displayHelper(ostream &) const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

@@ -38,9 +38,11 @@ int Item::getNumOfCopiesOut() {
     return totalCopies - numOfCopiesIn;
 };
 
+/*
 //------------------------------------------------------------------------------
 // operator<<
 // Displays item information
 ostream& operator<<(ostream& os, const Item& item) {
     item.displayHelper(os);
 }
+*/

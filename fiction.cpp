@@ -20,6 +20,17 @@ Item* Fiction::create() const{
     return new Fiction();
 }
 
+void Fiction::setData(ifstream& infile) {
+    infile.get();
+    getline(infile, author, ',');
+
+    infile.get();
+    getline(infile, bookTitle, ',');
+
+    infile.get();
+    infile >> year;
+}
+
 //---------------------------------------------------------------------------
 // setCommandData()
 void Fiction::setCommandData(ifstream& inFile) {
