@@ -4,7 +4,7 @@
 // Constructor
 Item::Item() { 
     totalCopies = 0;
-    numOfCopiesIn = -1;
+    numOfCopiesIn = 0;
 };
 
 //------------------------------------------------------------------------------

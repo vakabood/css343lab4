@@ -15,14 +15,12 @@ Patron::~Patron() { }
 //---------------------------------------------------------------------------
 // setData
 // Description: Sets the data for the patron
-void Patron::setData(istream& infile) {
+void Patron::setData(ifstream& infile) {
     infile >> patronId;
     if (infile.eof()) {
         return;
     }
-
-    infile.get();
-    infile >> patronName;
+    getline(infile, patronName, '\n');
 }
 /*
 //---------------------------------------------------------------------------

@@ -15,6 +15,7 @@
 #define _PATRON_H
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 
@@ -37,7 +38,7 @@ public:
   // Destructor
   virtual ~Patron();
 
-  virtual void setData(istream&);
+  virtual void setData(ifstream&);
 
   //virtual void addCommandToHistory(PatronAction&);
 

@@ -10,6 +10,7 @@ Periodical::Periodical() : Book() {
     month = 0;
     bookFormat = 'H';
     totalCopies = 1;
+    numOfCopiesIn = 1;
 }
 
 //---------------------------------------------------------------------------

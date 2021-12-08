@@ -13,7 +13,7 @@ class NodeData {
 
 public:
    NodeData();          // default constructor, data is set to an empty string
-   ~NodeData();          
+   virtual ~NodeData();          
 
    // set class data from data file
    // returns true if the data is set, false when bad data, i.e., is eof

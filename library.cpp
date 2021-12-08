@@ -32,7 +32,7 @@ void Library::buildLibrary(ifstream& infile) {
 
 void Library::buildPatrons(ifstream& infile) {
     for (;;) {
-        Patron* patronPtr = patronPtr = new Patron();
+        Patron* patronPtr = new Patron();
         patronPtr->setData(infile);
 
         if (infile.eof()) {
@@ -40,12 +40,7 @@ void Library::buildPatrons(ifstream& infile) {
             patronPtr = nullptr;
             break;
         }
-        cout << patronPtr->getPatronId() << endl;
         bool success = libraryPatrons.add(patronPtr);
-        cout << libraryPatrons.get(patronPtr->getPatronId())->getName() << endl;
-
-        delete patronPtr;
-        patronPtr = nullptr;
     }
 }
 

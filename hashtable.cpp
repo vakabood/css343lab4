@@ -26,7 +26,6 @@ void HashTable::clear() {
     for (int i = 0; i < MAX_SIZE; i++) {
         delete table[i];
     }
-    HashTable();
 }
 
 //---------------------------------------------------------------------------

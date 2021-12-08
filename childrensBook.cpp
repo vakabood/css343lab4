@@ -8,6 +8,7 @@ ChildrensBook::ChildrensBook() : Book(){
     year = 0;
     bookFormat = 'H';
     totalCopies = 5;
+    numOfCopiesIn = 5;
 }
 
 //------------------------------------------------------------------------------
@@ -79,9 +80,7 @@ bool ChildrensBook::operator<(const NodeData& bookToCompare) const {
             return true;
         }
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 //------------------------------------------------------------------------------
