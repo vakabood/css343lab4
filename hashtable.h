@@ -4,7 +4,9 @@
 
 #include <iostream>
 
-const int MAX_SIZE = 9999;
+const int MAX_SIZE = 10000;
+const int MIN_ID = 0000;
+const int MAX_ID = 9999;
 
 class Patron;
 

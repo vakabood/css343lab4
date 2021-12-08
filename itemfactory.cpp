@@ -31,9 +31,11 @@ ItemFactory::~ItemFactory() {
 
 //---------------------------------------------------------------------------
 // Creates an item based on the item type
-Item* ItemFactory::createIt(char ch) const{
+Item* ItemFactory::createIt(char ch, istream& infile) const{
     int index = hash(ch);
     if (itemTemplates[index] == nullptr) {
+        string valid;
+        getline(infile, valid, '\n');
         return nullptr;
     }
     else {

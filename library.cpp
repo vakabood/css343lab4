@@ -17,7 +17,7 @@ void Library::buildLibrary(ifstream& infile) {
         if (infile.eof()) {
             break;
         }
-        Item* itemPtr = libraryItemFactory.createIt(bookType);
+        Item* itemPtr = libraryItemFactory.createIt(bookType, infile);
 
         if (itemPtr != nullptr) {
             itemPtr->setData(infile);
@@ -27,6 +27,25 @@ void Library::buildLibrary(ifstream& infile) {
                 delete itemPtr;
             }
         }
+    }
+}
+
+void Library::buildPatrons(ifstream& infile) {
+    for (;;) {
+        Patron* patronPtr = patronPtr = new Patron();
+        patronPtr->setData(infile);
+
+        if (infile.eof()) {
+            delete patronPtr;
+            patronPtr = nullptr;
+            break;
+        }
+        cout << patronPtr->getPatronId() << endl;
+        bool success = libraryPatrons.add(patronPtr);
+        cout << libraryPatrons.get(patronPtr->getPatronId())->getName() << endl;
+
+        delete patronPtr;
+        patronPtr = nullptr;
     }
 }
 

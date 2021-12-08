@@ -33,8 +33,8 @@ void HashTable::clear() {
 // add
 // adds a patron to the hashtable
 bool HashTable::add(Patron* patron) {
-    if (size == MAX_SIZE || patron->getPatronId() < 1000 
-        || patron->getPatronId() > 9999) {
+    if (size == MAX_SIZE || patron->getPatronId() < MIN_ID 
+        || patron->getPatronId() > MAX_ID) {
         return false;
     }
     if (table[hash(patron->getPatronId())] != nullptr) {
@@ -51,11 +51,11 @@ bool HashTable::add(Patron* patron) {
 // hash
 // returns the hash value of the patron id
 int HashTable::hash(int patronId) const{
-    return patronId - 1000;
+    return patronId;
 }
 
 Patron* HashTable::get(int patronId) const {
-    if (patronId < 1000 || patronId > 9999) {
+    if (patronId < MIN_ID || patronId > MAX_ID) {
         return nullptr;
     }
     return table[hash(patronId)];

@@ -60,9 +60,9 @@ void Periodical::setCommandData(ifstream& infile) {
 //---------------------------------------------------------------------------
 // display
 void Periodical::display() const {
-    cout << left << setw(5) << totalCopies << setw(22) << 
-    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(15) << 
-    month << setw(5) << year << endl;
+    cout << left << setw(7) << numOfCopiesIn << setw(8) << 
+    year << setw(5) << month << setw(MAX_TITLE_LENGTH) << 
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << endl;
 }
 
 //---------------------------------------------------------------------------

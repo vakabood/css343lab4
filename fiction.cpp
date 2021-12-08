@@ -49,9 +49,9 @@ void Fiction::setCommandData(ifstream& inFile) {
 // display
 // Displays the data of the ChildrensBook object
 void Fiction::display() const {
-    cout << left << setw(5) << totalCopies << setw(22) <<
-    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(15) << 
-    author.substr(0, MAX_AUTHOR_LENGTH) << setw(5) << year << endl;
+    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_AUTHOR_LENGTH) <<
+    author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) << 
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year << endl;
 }
 
 //---------------------------------------------------------------------------

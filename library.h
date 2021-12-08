@@ -29,7 +29,6 @@
 // Only for class code, OK to use namespace
 using namespace std;
 
-
 //---------------------------------------------------------------------------
 // Library class represents the collection of all the books, items, Patrons
 class Library {
@@ -59,7 +58,7 @@ public:
   void buildLibrary(ifstream&);
 
   // Mass build library patrons using datafile
-  //void buildPatrons(ifstream&);
+  void buildPatrons(ifstream&);
 
   // Performs patron actions
   //void performCommands(ifstream&);
@@ -68,10 +67,11 @@ public:
 
 private:
   BinTree itemTypes[26];
-  //HashTable libraryPatrons; // stores all the library patrons
+  HashTable libraryPatrons; // stores all the library patrons
   //ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items
   char bookType;
+
 };
 
 #endif

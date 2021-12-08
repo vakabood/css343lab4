@@ -4,8 +4,7 @@
 //---------------------------------------------------------------------------
 // Constructor
 Patron::Patron() {
-    firstName = "";
-    lastName = "";
+    patronName = "";
     patronId = 0;
 }
 
@@ -23,19 +22,33 @@ void Patron::setData(istream& infile) {
     }
 
     infile.get();
-    infile >> lastName;
-
-    infile.get();
-    infile >> firstName;
+    infile >> patronName;
 }
-
+/*
 //---------------------------------------------------------------------------
 // addCommandToHistory
 // Description: Adds a command to the patron's history
 void Patron::addCommandToHistory(PatronAction& action) {
     history.push_back(action);
 }
-
+*/
 //---------------------------------------------------------------------------
 // displayHistory
 // Description: Displays the patron's history
+void Patron::displayHistory() const {
+    return;
+}
+
+//---------------------------------------------------------------------------
+// getPatronId
+// Description: Returns the patron's id
+int Patron::getPatronId() const {
+    return patronId;
+}
+
+//---------------------------------------------------------------------------
+// getFirstName
+// Description: Returns the patron's first name
+string Patron::getName() const {
+    return patronName;
+}
