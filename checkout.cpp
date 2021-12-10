@@ -6,14 +6,14 @@
 //---------------------------------------------------------------------------
 // Consructor
 Checkout::Checkout() {
-    action = "checkout";
-    associatedItem = nullptr;
+    action = "CheckOut";
+    tempItem = nullptr;
 }
 
 //---------------------------------------------------------------------------
 // Destructor
-Checkout::~Checkout() { 
-    delete associatedItem;
+Checkout::~Checkout() {
+    delete tempItem;
 }
 
 //---------------------------------------------------------------------------
@@ -28,30 +28,43 @@ PatronAction* Checkout::create() const {
 // Sets the data for the checkout object
 void Checkout::setData(Library *library, ifstream& infile) {
     this->lib = library;
-    int patronID;
     infile >> patronID;
-    //cout << "here" << endl;
     associatedPatron = lib->getPatron(patronID);
-    //associatedPatron = patrons.get(patronID);
 
-    infile >> itemType;
-    ItemFactory itemfactory = ItemFactory();
-    associatedItem = itemfactory.createIt(itemType, infile);
-
-    associatedItem->setCommandData(infile);
+    if (associatedPatron == nullptr) {
+        string temp;
+        getline(infile, temp);
+        cout << "ERROR: Patron with ID " << patronID << 
+                    " doesn't exist." << endl;
+    } else {
+        infile >> itemType;
+        ItemFactory itemfactory = ItemFactory();
+        tempItem = itemfactory.createIt(itemType, infile);
+        if (tempItem == nullptr) {
+            cout << "ERROR: " << '\'' << itemType << '\'' << 
+                        " is not a valid LibItem type." << endl;
+            string temp;
+            getline(infile, temp);
+        } else {
+            tempItem->setCommandData(infile);
+        }
+    }
 }
 
 //---------------------------------------------------------------------------
 // perform
 // Performs the checkout action
 void Checkout::perform() {
-    Item* item = lib->inLibrary(itemType, associatedItem);
-    
-    if (item != nullptr) {
-        if (item->getNumOfCopiesIn() > 0) {
-            item->decrementCopies();
+    associatedItem = lib->inLibrary(itemType, tempItem);
+    if (associatedItem != nullptr) {
+        if (associatedItem->getNumOfCopiesIn() > 0) {
+            associatedItem->decrementCopies();
             associatedPatron->addCommandToHistory(this);
-            associatedPatron->displayHistory();
         }
+    } else {
+        cout << "ERROR: " << associatedPatron->getName() << 
+                    " tried to check out " << '\'' << 
+                    associatedItem->getBookTitle() << '\'' <<
+                    " - not found in catalog.";
     }
 }

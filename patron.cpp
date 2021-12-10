@@ -40,12 +40,14 @@ void Patron::displayHistory() const {
     if (!history.empty()) {
         for (int i = 0; i < (int)history.size(); i++) {
             cout << history[i]->getAction() << " ";
-            history[i]->getAssociatedItem()->display();
+            if (history[i]->getAssociatedItem() != nullptr) {
+                history[i]->getAssociatedItem()->display();
+            }
         }
         cout << endl;
     }
     else {
-        cout << patronName << " does not have a history";
+        cout << patronName << " does not have a history" << endl;
     }
 }
 //---------------------------------------------------------------------------

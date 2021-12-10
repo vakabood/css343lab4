@@ -8,7 +8,6 @@ int main() {
   Library library;
 
   library.buildLibrary(infile);
-  library.display();
 
   ifstream infile2("data4patrons.txt");
   library.buildPatrons(infile2);

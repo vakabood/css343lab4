@@ -39,6 +39,7 @@ void BinTree::copyTreeHelper(Node * treeToCopy, Node *& newRoot) {
 	}
 }
 */
+
 //----------------------------------------------------------------------------
 // Destructor
 // Deletes all nodes in the tree.
@@ -336,7 +337,7 @@ ostream& operator<<(ostream& output, const BinTree& treeToPrint) {
 void BinTree::inorderHelper(Node* curr) const {
 	if (curr != nullptr) {
         inorderHelper(curr->left);
-        curr->data->display();
+        curr->data->displayData();
         inorderHelper(curr->right);
 	}
 }

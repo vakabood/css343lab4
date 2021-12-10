@@ -98,8 +98,8 @@ ostream& operator<<(ostream& os, const Periodical& item) {
     return os;
 }
 
-void Periodical::displayItem() const {
-    cout << setw(8) << 
+void Periodical::displayData() const {
+    cout << left << setw(7) << numOfCopiesIn << setw(8) << 
     year << setw(5) << month << setw(MAX_TITLE_LENGTH) << 
     bookTitle.substr(0, MAX_TITLE_LENGTH) << endl;
 }

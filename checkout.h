@@ -42,6 +42,8 @@ public:
 
 private:
   char itemType;
+  Item* tempItem;
+  int patronID;
 };
 
 #endif

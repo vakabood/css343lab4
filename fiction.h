@@ -41,7 +41,7 @@ public:
   
   virtual void display() const;
 
-  virtual void displayItem() const;
+  virtual void displayData() const;
 
   // operator<< helper
   //virtual void displayHelper(ostream &) const;

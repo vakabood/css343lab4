@@ -11,9 +11,9 @@ ActionFactory::ActionFactory() {
     }
 
     actionTemplates[2] = new Checkout();
-    //actionTemplates[3] = new DisplayLibrary();
-    //actionTemplates[7] = new DisplayHistory();
-    //actionTemplates[17] = new Return();
+    actionTemplates[3] = new DisplayLibrary();
+    actionTemplates[7] = new DisplayHistory();
+    actionTemplates[17] = new Return();
 }
 
 //---------------------------------------------------------------------------

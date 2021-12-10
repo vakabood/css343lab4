@@ -15,9 +15,9 @@
 
 
 #include "checkout.h"
-//#include "displayHistory.h"
-//#include "displayLibrary.h"
-//#include "return.h"
+#include "displayHistory.h"
+#include "displayLibrary.h"
+#include "return.h"
 
 class PatronAction;
 

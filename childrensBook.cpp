@@ -100,9 +100,8 @@ ostream& operator<<(ostream& out, const ChildrensBook& item) {
     return out;
 }
 
-void ChildrensBook::displayItem() const {
-    cout << left << 
-    setw(MAX_TITLE_LENGTH + 5) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
-    setw(MAX_AUTHOR_LENGTH) << 
+void ChildrensBook::displayData() const {
+    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_TITLE_LENGTH + 5) <<
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(MAX_AUTHOR_LENGTH) << 
     author.substr(0, MAX_AUTHOR_LENGTH) << right << setw(8) << year << endl;
 }

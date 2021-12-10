@@ -25,6 +25,7 @@
 // Only for class code, OK to use namespace
 using namespace std;
 
+const int MAX_GENRES = 26;
 //class PatronAction;
 
 //---------------------------------------------------------------------------
@@ -67,11 +68,10 @@ public:
 
   //getters
   Patron* getPatron(int) const;
-  BinTree getItemTree(char) const;
 
 
 private:
-  BinTree itemTypes[26];
+  BinTree itemTypes[MAX_GENRES];
   HashTable libraryPatrons; // stores all the library patrons
   ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items

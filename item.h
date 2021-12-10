@@ -52,7 +52,7 @@ public:
   // operator<< helper
   //virtual void displayHelper(ostream &) const = 0;
 
-  virtual void displayItem() const = 0;
+  virtual void displayData() const = 0;
 
   virtual bool operator<(const NodeData&) const = 0;
 

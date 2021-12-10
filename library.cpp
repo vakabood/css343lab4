@@ -4,7 +4,7 @@
 // Constructor
 Library::Library()
 {
-    
+
 }
 
 
@@ -74,18 +74,21 @@ void Library::performCommands(ifstream& infile) {
             break;
         }
         
-        PatronAction* patronActionPtr = patronActionFactory.createIt(actionType, infile);
+        PatronAction* patronActionPtr = 
+                patronActionFactory.createIt(actionType, infile);
         if (patronActionPtr != nullptr) {
-            cout << patronActionPtr->getAction() << endl;
             patronActionPtr->setData(this, infile);
             patronActionPtr->perform();
             delete patronActionPtr;
+        } else {
+            cout << "ERROR: " << '\'' << actionType << '\'' 
+            << " is not a valid action" << endl;
         }
     }
 }
 
 void Library::display() const {
-    for (int i = 0; i < 26; i++) {
+    for (int i = 0; i < MAX_GENRES; i++) {
         if (!itemTypes[i].isEmpty()) {
             cout << itemTypes[i];
         }
@@ -97,13 +100,6 @@ void Library::display() const {
 // Purpose: Returns the patron table.
 Patron* Library::getPatron(int patronId) const {
     return libraryPatrons.get(patronId);
-}
-
-//------------------------------------------------------------------------------
-// getItemTrees
-// Purpose: Returns the array of BinTrees
-BinTree Library::getItemTree(char itemType) const {
-    return itemTypes[itemType - 'A'];
 }
 
 Item* Library::inLibrary(char itemType, Item*& target) const {

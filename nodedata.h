@@ -14,7 +14,7 @@ class NodeData {
 public:
    NodeData();          // default constructor, data is set to an empty string
    virtual ~NodeData();          
-
+   
    // set class data from data file
    // returns true if the data is set, false when bad data, i.e., is eof
    virtual void setData(ifstream&) = 0;                
@@ -23,6 +23,9 @@ public:
    virtual bool operator<(const NodeData &) const = 0;
 
    virtual void display() const = 0;
+
+   virtual void displayData() const = 0;
+   
 private:
   // operator<< helper
   //virtual void displayHelper(ostream &) const = 0;    
