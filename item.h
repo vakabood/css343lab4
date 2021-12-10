@@ -42,6 +42,8 @@ public:
   // creates an item
   virtual Item* create() const = 0;
 
+  virtual string getBookTitle() const = 0;
+
   // Sets the data for the member variables
   virtual void setData(ifstream&) = 0;
 
@@ -49,6 +51,8 @@ public:
   virtual void display() const = 0;
   // operator<< helper
   //virtual void displayHelper(ostream &) const = 0;
+
+  virtual void displayItem() const = 0;
 
   virtual bool operator<(const NodeData&) const = 0;
 

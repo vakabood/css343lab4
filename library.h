@@ -14,20 +14,18 @@
 #ifndef _LIBRARY_H
 #define _LIBRARY_H
 
-#include <list>
 #include <iostream>
 #include <fstream>
-#include <unordered_map>
-#include "patron.h"
-#include "item.h"
 #include "actionFactory.h"
 #include "itemFactory.h"
 #include "bintree.h"
-#include "nodedata.h"
 #include "hashtable.h"
+//#include "patronAction.h"
 
 // Only for class code, OK to use namespace
 using namespace std;
+
+//class PatronAction;
 
 //---------------------------------------------------------------------------
 // Library class represents the collection of all the books, items, Patrons
@@ -43,7 +41,7 @@ public:
   //bool addItem(Item&);
 
   // Removes item from library database
-  //bool removeItem(Item&);
+  bool removeItem(Item&);
 
   // Finds the item in library database
   //Item* findItem(Item&) const;
@@ -54,6 +52,8 @@ public:
   // Removes a patron from library
   //bool removePatron(Patron);
 
+  Item* inLibrary(char, Item*&) const;
+
   // Mass build of library items using datafile
   void buildLibrary(ifstream&);
 
@@ -61,17 +61,22 @@ public:
   void buildPatrons(ifstream&);
 
   // Performs patron actions
-  //void performCommands(ifstream&);
+  void performCommands(ifstream&);
 
   void display() const;
+
+  //getters
+  Patron* getPatron(int) const;
+  BinTree getItemTree(char) const;
+
 
 private:
   BinTree itemTypes[26];
   HashTable libraryPatrons; // stores all the library patrons
-  //ActionFactory patronActionFactory;  // factory to create patron actions
+  ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items
   char bookType;
-
+  char actionType;
 };
 
 #endif

@@ -13,7 +13,15 @@
 #ifndef _ACTION_FACTORY_H
 #define _ACTION_FACTORY_H
 
-#include "patronAction.h"
+
+#include "checkout.h"
+//#include "displayHistory.h"
+//#include "displayLibrary.h"
+//#include "return.h"
+
+class PatronAction;
+
+const int MAX_COMMAND_TYPES = 26;
 
 using namespace std;
 // Action Factory class is factory for creating different types of patron 
@@ -27,10 +35,10 @@ public:
   virtual ~ActionFactory();
 
   // Creates a specific type of action based on the given char
-  PatronAction* createIt(char) const;
+  PatronAction* createIt(char, istream &) const;
   
 private:
-  PatronAction* actionTemplates[26];  // array of template actions that can 
+  PatronAction* actionTemplates[MAX_COMMAND_TYPES];  // array of template actions that can 
                                       //    be performed
   
   // hashing function to identify the key of the action that needs to be 

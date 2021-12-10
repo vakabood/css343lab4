@@ -10,8 +10,11 @@ int main() {
   library.buildLibrary(infile);
   library.display();
 
-  ifstream file("data4patrons.txt");
-  Library lib;
-  lib.buildPatrons(file);
+  ifstream infile2("data4patrons.txt");
+  library.buildPatrons(infile2);
+
+  ifstream infile3("data4commands.txt");
+  library.performCommands(infile3);
+  
   return 0;
 } 

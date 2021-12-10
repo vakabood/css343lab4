@@ -39,6 +39,7 @@ bool HashTable::add(Patron* patron) {
     if (table[hash(patron->getPatronId())] != nullptr) {
         cout << "Patron already exists" << endl;
         delete patron;
+        patron = nullptr;
         return false;
     }
     table[hash(patron->getPatronId())] = patron;

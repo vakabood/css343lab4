@@ -61,7 +61,7 @@ void Periodical::setCommandData(ifstream& infile) {
 //---------------------------------------------------------------------------
 // display
 void Periodical::display() const {
-    cout << left << setw(7) << numOfCopiesIn << setw(8) << 
+    cout << left << setw(8) << 
     year << setw(5) << month << setw(MAX_TITLE_LENGTH) << 
     bookTitle.substr(0, MAX_TITLE_LENGTH) << endl;
 }
@@ -98,4 +98,8 @@ ostream& operator<<(ostream& os, const Periodical& item) {
     return os;
 }
 
-
+void Periodical::displayItem() const {
+    cout << setw(8) << 
+    year << setw(5) << month << setw(MAX_TITLE_LENGTH) << 
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << endl;
+}

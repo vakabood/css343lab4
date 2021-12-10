@@ -1,15 +1,28 @@
 #include "library.h"
 
+//------------------------------------------------------------------------------
+// Constructor
 Library::Library()
 {
-    //ctor
+    
 }
 
+
+//------------------------------------------------------------------------------
+// Destructor
 Library::~Library()
 {
     //dtor
 } 
 
+//------------------------------------------------------------------------------
+// buildLibrary
+// Purpose: Builds the library of books from the input file. 
+// Description: Parses through the input file, and creates a book object for 
+// each line using the ItemFactory.createIt() function. Then, uses the setData
+// function for that specific item to set the data for each book. Then, adds
+// that book to the appropriate BinTree that matches the itemType in the array
+// of BinTrees. 
 void Library::buildLibrary(ifstream& infile) {
     for (;;) {
         infile >> bookType;
@@ -30,6 +43,13 @@ void Library::buildLibrary(ifstream& infile) {
     }
 }
 
+//------------------------------------------------------------------------------
+// buildPatrons
+// Purpose: Builds the patrons collection from the input file.
+// Description: Parses through the input file, and creates a patron pointer for
+// each line. Then, calls the patron setData function on that pointer to set
+// the id and name for each patron. Then, adds that patron to the hashtable
+// at an index based on the id.
 void Library::buildPatrons(ifstream& infile) {
     for (;;) {
         Patron* patronPtr = new Patron();
@@ -44,10 +64,51 @@ void Library::buildPatrons(ifstream& infile) {
     }
 }
 
+//------------------------------------------------------------------------------
+// performCommands
+// Purpose: Performs the commands from the input file.
+void Library::performCommands(ifstream& infile) {
+    for (;;) {
+        infile >> actionType;
+        if (infile.eof()) {
+            break;
+        }
+        
+        PatronAction* patronActionPtr = patronActionFactory.createIt(actionType, infile);
+        if (patronActionPtr != nullptr) {
+            cout << patronActionPtr->getAction() << endl;
+            patronActionPtr->setData(this, infile);
+            patronActionPtr->perform();
+            delete patronActionPtr;
+        }
+    }
+}
+
 void Library::display() const {
     for (int i = 0; i < 26; i++) {
         if (!itemTypes[i].isEmpty()) {
             cout << itemTypes[i];
         }
     }
+}
+
+//------------------------------------------------------------------------------
+// getPatronTable
+// Purpose: Returns the patron table.
+Patron* Library::getPatron(int patronId) const {
+    return libraryPatrons.get(patronId);
+}
+
+//------------------------------------------------------------------------------
+// getItemTrees
+// Purpose: Returns the array of BinTrees
+BinTree Library::getItemTree(char itemType) const {
+    return itemTypes[itemType - 'A'];
+}
+
+Item* Library::inLibrary(char itemType, Item*& target) const {
+    NodeData* targetData = nullptr;
+    bool success = itemTypes[itemType - 'A'].retrieve(*target, targetData);
+
+    return (Item*)targetData;
 }

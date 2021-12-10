@@ -19,7 +19,8 @@
 #include <vector>
 #include <string>
 
-//class PatronAction;
+
+class PatronAction;
 
 
 // Only for class code, OK to use namespace
@@ -40,21 +41,22 @@ public:
 
   virtual void setData(ifstream&);
 
-  //virtual void addCommandToHistory(PatronAction&);
+  virtual void addCommandToHistory(PatronAction*);
 
   virtual void displayHistory() const;
 
   // operator<< helper
   //virtual ostream displayHelper() const;
   
-  //virtual bool operator==(const Patron &) const;
-  //virtual bool operator!=(const Patron &) const;
+  virtual bool operator==(const Patron &) const;
+  virtual bool operator!=(const Patron &) const;
   
   // getters for class data
   int getPatronId() const;
   string getName() const;
+  vector<PatronAction*> getHistory() const;
 protected:
-  //vector<PatronAction> history;   // the patron's past actions
+  vector<PatronAction*> history;   // the patron's past actions
   int patronId;    // unique 4 digit id number
   string patronName;
 };

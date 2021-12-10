@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 // Constructor
 ItemFactory::ItemFactory() {
-    for (int i = 0; i < MAXITEMTYPES; i++)
+    for (int i = 0; i < MAX_ITEM_TYPES; i++)
     {
         itemTemplates[i] = nullptr;    
     }
@@ -19,7 +19,7 @@ ItemFactory::ItemFactory() {
 //---------------------------------------------------------------------------
 // Destructor
 ItemFactory::~ItemFactory() {
-    for (int i = 0; i < MAXITEMTYPES; i++)
+    for (int i = 0; i < MAX_ITEM_TYPES; i++)
     {
         if (itemTemplates[i] != nullptr)
         {

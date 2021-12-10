@@ -44,6 +44,8 @@ public:
   //virtual void displayHelper(ostream &) const;
 
   virtual void display() const;
+
+  virtual void displayItem() const;
   
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const NodeData &) const;

@@ -18,9 +18,15 @@
 #include <fstream>
 #include "patron.h"
 #include "item.h"
+#include "hashtable.h"
+#include "itemFactory.h"
+#include "bintree.h"
+
 
 // Only for class code, OK to use namespace
 using namespace std;
+
+class Library;
 
 //---------------------------------------------------------------------------
 // PatronAction class represents actions a patron can take.
@@ -36,32 +42,36 @@ public:
   virtual ~PatronAction();
 
   // Getter - gets the associated Patron
-  virtual Patron getAssociatedPatron() const;
+  virtual Patron* getAssociatedPatron() const;
 
   // Setter - sets the associated patron
-  virtual bool setAssociatedPatron(Patron);
+  //virtual bool setAssociatedPatron(Patron);
 
   // Getter - gets the associated item
-  virtual Item& getAssociatedItem() const;
+  virtual Item* getAssociatedItem() const;
 
   // Setter - sets the associated item
-  virtual bool setAssociatedItem(Item&);
+  //virtual bool setAssociatedItem(Item&);
 
   // Sets the data for the member variables
-  virtual void setData(ifstream&);
+  virtual void setData(Library*, ifstream&) = 0;
 
   // operator<< helper
-  virtual ostream displayHelper() const;
+  //virtual void displayItem() const = 0;
   
   // creates the patron action
   virtual PatronAction* create() const = 0;
 
   // Performs the patron action
-  virtual void perform() const = 0;
+  virtual void perform() = 0;
+
+  virtual string getAction() const;
 
 protected:
+  Library* lib;
   Patron* associatedPatron;  // the patron associated with the action
   Item* associatedItem;      // the item associated with the action
+  string action;         // the type of action
 };
 
 #endif

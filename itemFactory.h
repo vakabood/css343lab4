@@ -18,7 +18,7 @@
 #include "periodical.h"
 
 
-const int MAXITEMTYPES = 26; 
+const int MAX_ITEM_TYPES = 26; 
 
 // Item Factory class is a factory for creating different types of items 
 class ItemFactory {
@@ -34,7 +34,7 @@ public:
   Item* createIt(char, istream &) const;
   
 private:
-  Item* itemTemplates[MAXITEMTYPES]; // array with a size of 26 to contain 
+  Item* itemTemplates[MAX_ITEM_TYPES]; // array with a size of 26 to contain 
                            // different types of item templates
 
   // hashing function to identify the key of the action that needs to be 

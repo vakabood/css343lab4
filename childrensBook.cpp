@@ -63,8 +63,9 @@ void ChildrensBook::setCommandData(ifstream& inFile) {
 // display
 // Displays the data of the ChildrensBook object
 void ChildrensBook::display() const{
-    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_TITLE_LENGTH + 5) <<
-    bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(MAX_AUTHOR_LENGTH) << 
+    cout << left << 
+    setw(MAX_TITLE_LENGTH + 5) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
+    setw(MAX_AUTHOR_LENGTH) << 
     author.substr(0, MAX_AUTHOR_LENGTH) << right << setw(8) << year << endl;
 }
 
@@ -97,4 +98,11 @@ ostream& operator<<(ostream& out, const ChildrensBook& item) {
     out << left << item.numOfCopiesIn << setw(22) << item.author << setw(22) << item.bookTitle 
     << setw(4) <<  item.year << setw(4) << item.bookFormat << endl;
     return out;
+}
+
+void ChildrensBook::displayItem() const {
+    cout << left << 
+    setw(MAX_TITLE_LENGTH + 5) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
+    setw(MAX_AUTHOR_LENGTH) << 
+    author.substr(0, MAX_AUTHOR_LENGTH) << right << setw(8) << year << endl;
 }

@@ -38,20 +38,20 @@ void Fiction::setData(ifstream& infile) {
 void Fiction::setCommandData(ifstream& inFile) {
     inFile.get();
     inFile >> bookFormat;
+    
+    inFile.get();
+    getline(inFile, author, ',');
 
     inFile.get();
     getline(inFile, bookTitle, ',');
-
-    inFile.get();
-    getline(inFile, author, ',');
 }
 
 //------------------------------------------------------------------------------
 // display
 // Displays the data of the ChildrensBook object
 void Fiction::display() const {
-    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_AUTHOR_LENGTH) <<
-    author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) << 
+    cout << left << setw(MAX_AUTHOR_LENGTH) 
+    << author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) << 
     bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year << endl;
 }
 
@@ -87,4 +87,8 @@ ostream& operator<<(ostream& os, const Fiction& item) {
     return os;
 }
 
-
+void Fiction::displayItem() const {
+    cout << left << setw(MAX_AUTHOR_LENGTH) 
+    << author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) << 
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year << endl;
+}

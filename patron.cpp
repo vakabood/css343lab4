@@ -1,5 +1,6 @@
 //---------------------------------------------------------------------------
 #include "patron.h"
+#include "patronAction.h"
 
 //---------------------------------------------------------------------------
 // Constructor
@@ -22,20 +23,47 @@ void Patron::setData(ifstream& infile) {
     }
     getline(infile, patronName, '\n');
 }
-/*
+
 //---------------------------------------------------------------------------
 // addCommandToHistory
 // Description: Adds a command to the patron's history
-void Patron::addCommandToHistory(PatronAction& action) {
+void Patron::addCommandToHistory(PatronAction* action) {
     history.push_back(action);
 }
-*/
+
 //---------------------------------------------------------------------------
 // displayHistory
 // Description: Displays the patron's history
 void Patron::displayHistory() const {
-    return;
+    cout << patronId << " " << patronName << ":" << endl;
+
+    if (!history.empty()) {
+        for (int i = 0; i < (int)history.size(); i++) {
+            cout << history[i]->getAction() << " ";
+            history[i]->getAssociatedItem()->display();
+        }
+        cout << endl;
+    }
+    else {
+        cout << patronName << " does not have a history";
+    }
 }
+//---------------------------------------------------------------------------
+// operator==
+// Description: Compares two patrons by their id
+// Returns true if the two patrons have the same id
+bool Patron::operator==(const Patron& other) const {
+    return patronId == other.patronId;
+}
+
+//---------------------------------------------------------------------------
+// operator!=
+// Description: Compares two patrons by their id
+// Returns true if the two patrons do not have the same id
+bool Patron::operator!=(const Patron& other) const {
+    return patronId != other.patronId;
+}
+
 
 //---------------------------------------------------------------------------
 // getPatronId
@@ -49,4 +77,11 @@ int Patron::getPatronId() const {
 // Description: Returns the patron's first name
 string Patron::getName() const {
     return patronName;
+}
+
+//---------------------------------------------------------------------------
+// getHistory
+// Description: Returns the patron's history
+vector<PatronAction*> Patron::getHistory() const {
+    return history;
 }
