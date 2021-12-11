@@ -47,9 +47,9 @@ public:
   virtual void display() const;
 
 private:
-  char itemType;
-  Item* tempItem;
-  int patronID;
+  char itemType; // type of Item (C, P, F, etc.)
+  Item* tempItem; // Pointer to a temporary item
+  int patronID; // Patron ID
 };
 
 #endif

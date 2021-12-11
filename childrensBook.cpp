@@ -7,7 +7,7 @@
 
 //------------------------------------------------------------------------------
 // Constructor
-// initializes author, bookTitle, year, bookFormat, totalCopies, and
+// initializes author, genre, bookTitle, year, bookFormat, totalCopies, and
 // numOfCopiesIn
 ChildrensBook::ChildrensBook() : Book(){
     author = "";
@@ -41,7 +41,7 @@ Item* ChildrensBook::create() const {
 
 //------------------------------------------------------------------------------
 // setData
-// sets data for book
+// sets data for childrens book from book data file
 void ChildrensBook::setData(ifstream& infile) {
     infile.get();
     getline(infile, author, ',');
@@ -49,13 +49,12 @@ void ChildrensBook::setData(ifstream& infile) {
     infile.get();
     getline(infile, bookTitle, ',');
 
-    //infile.get();
     infile >> year;
 }
 
 //------------------------------------------------------------------------------
 // setCommandData
-// Sets the data of the ChildrensBook object
+// Sets the data of the ChildrensBook object from the command data file
 void ChildrensBook::setCommandData(ifstream& inFile) {
     inFile.get();
     inFile >> bookFormat;
@@ -69,7 +68,7 @@ void ChildrensBook::setCommandData(ifstream& inFile) {
 
 //------------------------------------------------------------------------------
 // display
-// Displays the data of the ChildrensBook object
+// Displays the data of the ChildrensBook object for the action display
 void ChildrensBook::display() const{
     cout << left << 
     setw(MAX_TITLE_LENGTH + 2) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
@@ -83,7 +82,7 @@ void ChildrensBook::display() const{
 // Checks to see if this childrens book is less than the one sent in the
 // parameter.
 // The book in the parameter is cast to childrens book since it already
-// checks before coming to this function whether or not the book is a
+// checked before coming to this function whether or not the book is a
 // childrens book. It then compares the book titles and returns true if this
 // is less than the book from the parameter. It then compares the author's
 // names if the book has the same title.

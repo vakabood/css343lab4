@@ -9,7 +9,7 @@
 
 //---------------------------------------------------------------------------
 // Consructor
-// Initializes action and sets associatedItem to nullptr
+// Initializes action and sets tempItem to nullptr
 Checkout::Checkout() {
     action = "CheckOut";
     tempItem = nullptr;
@@ -18,7 +18,7 @@ Checkout::Checkout() {
 
 //---------------------------------------------------------------------------
 // Destructor
-// deletes associatedItem
+// deletes tempItem
 Checkout::~Checkout() {
     delete tempItem;
 }
@@ -62,6 +62,8 @@ bool Checkout::setData(Library *library, ifstream& infile) {
         infile >> itemType;
         ItemFactory itemfactory = ItemFactory();
         tempItem = itemfactory.createIt(itemType, infile);
+        // If tempItem is a nullptr, an error message is thrown. If the
+        // item is valid, true will be returned. Else, false will be returned
         if (tempItem == nullptr) {
             cout << "ERROR: " << '\'' << itemType << '\'' << 
                         " is not a valid LibItem type." << endl;
@@ -69,8 +71,10 @@ bool Checkout::setData(Library *library, ifstream& infile) {
             getline(infile, temp, '\n');
             return false;
         } else {
-            tempItem->setCommandData(infile);
+            tempItem->setCommandData(infile); // sets the data for the item
+            // checks if the item is in the library
             associatedItem = lib->inLibrary(itemType, tempItem);
+            // if item is not in the library, prints error, returns false.
             if (associatedItem == nullptr) {
                 cout << "ERROR: " << associatedPatron->getName() << 
                     " tried to check out " << '\'' << 
@@ -80,6 +84,7 @@ bool Checkout::setData(Library *library, ifstream& infile) {
             }
         }
     }
+    // item is valid and ready to be checked out.
     return true;
 }
 
@@ -89,11 +94,13 @@ bool Checkout::setData(Library *library, ifstream& infile) {
 // completed and returns false if the checkout action could not be completed
 bool Checkout::perform() {
     if (associatedItem != nullptr) {
+        // checks if there are copies of the item in the library
         if (associatedItem->getNumOfCopiesIn() > 0) {
             associatedItem->decrementCopies();
             associatedPatron->addCommandToHistory(this);
             return true;
         } else {
+            // prints error if no copies are available 
             cout << "ERROR: There are no more copies of "  << 
                     associatedItem->getBookTitle() << " in the library" <<
                     endl;

@@ -22,8 +22,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 //displayLibrary class prints out the contents in the Library
 class DisplayLibrary : public PatronAction {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const DisplayLibrary &);
 
 public:
   // Constructor - creates a new DisplayLibrary object
@@ -38,6 +36,7 @@ public:
   // Sets the data for the member variable
   virtual bool setData(Library *, ifstream&);
 
+  // Displays the action
   virtual void display() const;
   
   // Prints out the contents of the library

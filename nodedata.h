@@ -17,14 +17,12 @@
 #include <fstream>
 using namespace std;
 
-// simple class containing one string to use for testing
-// not necessary to comment further
 
 class NodeData {
    friend ostream & operator<<(ostream &, const NodeData &);
 
 public:
-   NodeData();          // default constructor, data is set to an empty string
+   NodeData();     // default constructor, data is set to an empty string
    virtual ~NodeData();          
    
    // set class data from data file
@@ -33,18 +31,18 @@ public:
 
    // Returns true if this and the parameter is the same and false if not
    virtual bool operator==(const NodeData &) const = 0;
+
    // Returns true if this is smaller than the parameter and false is not
    virtual bool operator<(const NodeData &) const = 0;
 
+   // display for display history of the object
    virtual void display() const = 0;
 
+   // displays the data for the commands
    virtual void displayData() const = 0;
 
+   // displays header of the object
    virtual void displayHeader() const = 0;
-   
-private:
-  // operator<< helper
-  //virtual void displayHelper(ostream &) const = 0;    
 };
 
 #endif

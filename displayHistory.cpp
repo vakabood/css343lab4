@@ -25,7 +25,7 @@ DisplayHistory::~DisplayHistory() {
 
 //---------------------------------------------------------------------------
 // create
-// Purpose: Creates the display history object
+// Purpose: Creates the DisplayHistory object
 PatronAction* DisplayHistory::create() const{
     return new DisplayHistory();
 }
@@ -46,6 +46,7 @@ bool DisplayHistory::setData(Library *library, ifstream& infile) {
     infile >> patronID;
     //gets the patron id from library.cpp
     associatedPatron = lib->getPatron(patronID);
+    // if patron doesn't exist in library, prints error
     if (associatedPatron == nullptr) {
         cout << "ERROR: Patron with ID " << patronID << 
                     " doesn't exist." << endl;
@@ -56,7 +57,8 @@ bool DisplayHistory::setData(Library *library, ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // perform
-// Purpose: Displays the history of a patron
+// Purpose: Displays the history of a patron. Adds action to patron 
+// history.
 bool DisplayHistory::perform() {
     associatedPatron->displayHistory();
     associatedPatron->addCommandToHistory(this);

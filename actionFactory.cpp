@@ -9,7 +9,8 @@
 
 //---------------------------------------------------------------------------
 // Constructor
-// Creates an action factory
+// Creates an action factory. Initializes each PatronAction pointer to
+// nullptr. Initializes the current action type to a new action object.
 ActionFactory::ActionFactory() {
     for (int i = 0; i < MAX_COMMAND_TYPES; i++) {
         actionTemplates[i] = nullptr;
@@ -23,7 +24,7 @@ ActionFactory::ActionFactory() {
 
 //---------------------------------------------------------------------------
 // Destructor
-// Deallocates the action factory
+// Deallocates the action factory. Deletes each PatronAction pointer..
 ActionFactory::~ActionFactory() {
     for (int i = 0; i < MAX_COMMAND_TYPES; i++) {
         if (actionTemplates[i] != nullptr) {
@@ -35,8 +36,9 @@ ActionFactory::~ActionFactory() {
 
 //---------------------------------------------------------------------------
 // createIt
-// Creates an action object based on the command type
-// returns the PatronAction array with the action character added into it
+// Creates a PatronAction object based on the command type.
+// Returns a pointer to the PatronAction object based on the char parameter
+// by calling create on the PatronAction object at the hashed index.
 PatronAction* ActionFactory::createIt(char ch, istream& infile) const{
     int index = hash(ch);
     if (actionTemplates[index] == nullptr) {

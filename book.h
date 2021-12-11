@@ -16,7 +16,7 @@
 #include <fstream>
 #include <string>
 #include "item.h"
-
+#include "consts.h"
 
 // Only for class code, OK to use namespace
 using namespace std;
@@ -32,12 +32,14 @@ public:
   // Destructor - deallocates the book
   virtual ~Book() = 0;
 
-  // returns the number of copies of the book that are currently 
-  //    checked out
+  // Getters
+  // Returns the year of publication of the book
   int getYear() const; 
 
+  // Returns the title of the book
   string getBookTitle() const;
 
+  // Returns the format of the book (hardcover, etc)
   string getBookFormat() const;
 
   // creates an Item that is a Book
@@ -46,12 +48,16 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&) = 0;
 
+  // Sets the data of the item from the command file
   virtual void setCommandData(ifstream&) = 0;
 
+  // Displays the book info for displaying the command
   virtual void display() const = 0;
   
+  // Displays the book info for displaying the library
   virtual void displayData() const = 0;
 
+  // Displays the book headers for displaying the library
   virtual void displayHeader() const = 0;
 
   // == operator - returns if two books are equal
@@ -61,13 +67,13 @@ public:
   virtual bool operator<(const NodeData &) const = 0;
 
 protected:
-  static const int MAX_TITLE_LENGTH = 26;
-  static const int MAX_AUTHOR_LENGTH = 26;
+  //static const int MAX_TITLE_LENGTH = 26;
+  //static const int MAX_AUTHOR_LENGTH = 26;
 
   int year; // the year of publication of the book
   string bookTitle; // the title of the book
   string bookFormat; // the format --> 'H' = hardcover
-  string genre;
+  string genre; // the genre of the book
 };
 
 #endif

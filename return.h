@@ -4,7 +4,7 @@
 // Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Return class: contains a create and perform function which help with the
-//               checkout action.
+//               return action.
 //        Derived from PatronAction
 // Assumptions:
 //      -- Patron and PatronAction have been implemented
@@ -22,8 +22,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 // Return class represents the checkout action a patron can take.
 class Return : public PatronAction {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const Return &);
 
 public:
   // Constructor
@@ -45,7 +43,7 @@ public:
   virtual bool perform();
 
 private:
-  char itemType;
-  Item* tempItem;
+  char itemType; // type of item to be returned
+  Item* tempItem; // temporary item pointer
 };
 #endif

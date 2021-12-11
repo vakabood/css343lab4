@@ -18,9 +18,9 @@
 #include "childrensBook.h"
 #include "fiction.h"
 #include "periodical.h"
+#include "consts.h"
 
-
-const int MAX_ITEM_TYPES = 26; 
+//const int MAX_ITEM_TYPES = 26; 
 
 // Item Factory class is a factory for creating different types of items 
 class ItemFactory {

@@ -27,7 +27,7 @@ Periodical::~Periodical() { }
 
 //---------------------------------------------------------------------------
 // getMonth
-// Returns int month
+// Returns month of publication of the periodical
 int Periodical::getMonth() const{
     return month;
 }
@@ -41,7 +41,7 @@ Item* Periodical::create() const {
 
 //---------------------------------------------------------------------------
 // setData
-// Sets the data of month year and the book title
+// Sets the data of month, year, and the book title from book file
 void Periodical::setData(ifstream& infile) {
     infile.get();
     getline(infile, bookTitle, ',');
@@ -55,7 +55,7 @@ void Periodical::setData(ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // setCommandData
-// sets the data for the bookFormat and same as setData
+// sets the data for the Periodical object from the command data file
 void Periodical::setCommandData(ifstream& infile) {
     infile.get();
     infile >> bookFormat;

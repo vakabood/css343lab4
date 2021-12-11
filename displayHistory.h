@@ -38,7 +38,7 @@ public:
   // Sets the data of the member variables
   virtual bool setData(Library *, ifstream&);
 
-  // Displays the history
+  // Displays the action
   virtual void display() const;
   
   // Prints out the history of actions

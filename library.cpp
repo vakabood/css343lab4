@@ -40,7 +40,7 @@ void Library::buildLibrary(ifstream& infile) {
         if (itemPtr != nullptr) {
             itemPtr->setData(infile);
 
-            bool success = itemTypes[itemType].insert(itemPtr);
+            bool success = itemTypes[itemType - 'A'].insert(itemPtr);
             if (!success) {
                 delete itemPtr;
             }
@@ -74,24 +74,34 @@ void Library::buildPatrons(ifstream& infile) {
 // Purpose: Performs the commands from the input file.
 void Library::performCommands(ifstream& infile) {
     for (;;) {
+        // Read in the command
         infile >> actionType;
+
+        // If the end of the file is reached, break out of the loop
         if (infile.eof()) {
             break;
         }
 
+        // Creates a PatronAction object based on the actionType
         PatronAction* patronActionPtr = 
                 patronActionFactory.createIt(actionType, infile);
+
+        // If the action exists, set the data of the object
         if (patronActionPtr != nullptr) {
             bool success = patronActionPtr->setData(this, infile);
+            // if the data was valid, execute the action
             if (success) {
                 bool actionSuccess = patronActionPtr->perform();
+                // if the action wasn't successful, delete the action 
+                // pointer
                 if (!actionSuccess) {
                     delete patronActionPtr;
                 }
             } else {
-                delete patronActionPtr;
+                delete patronActionPtr; // if the data was not valid
+                                        // delete the action pointer
             }
-        } else {
+        } else { // if the action doesn't exist, prints out error message
             cout << "ERROR: " << '\'' << actionType << '\'' 
             << " is not a valid action" << endl;
         }
@@ -111,15 +121,15 @@ void Library::display() const {
 
 //------------------------------------------------------------------------------
 // getPatronTable
-// Purpose: Returns the patron table.
+// Purpose: Returns the patron at the given id from the patron hashtable
 Patron* Library::getPatron(int patronId) const {
     return libraryPatrons.get(patronId);
 }
 
 //-----------------------------------------------------------------------------
 // inLibrary
-// Checks to see if the item from the parameters is in the library.
-// Returns the Item pointer if there is and nullptr if there isnt.
+// Checks to see if the item from parameter 1 is in the library.
+// Returns the Item pointer if the item is in the library and nullptr if not.
 Item* Library::inLibrary(char itemType, Item*& target) const {
     NodeData* targetData = nullptr;
     bool success = itemTypes[itemType - 'A'].retrieve(*target, targetData);

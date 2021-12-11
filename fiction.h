@@ -35,20 +35,20 @@ public:
   // Creates an Item that is a fiction book
   virtual Item* create() const;
 
-  // Sets the data for the member variables
+  // Sets the data for the member variables from book data file
   virtual void setData(ifstream&);
 
-  //sets the data of the fiction object
+  // Sets the data of the fiction object from command file
   virtual void setCommandData(ifstream&);
 
-    //Displays the data of the fiction book object without the number of copies
-    virtual void display() const;
+  //Displays the data of the fiction book object without the number of copies
+  virtual void display() const;
 
-    //Displays the data of the fiction book object with the number of copies
-    virtual void displayData() const;
+  //Displays the data of the fiction book object with the number of copies
+  virtual void displayData() const;
 
-    // Displays the headers
-    virtual void displayHeader() const;
+  // Displays the header for the fiction book object
+  virtual void displayHeader() const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

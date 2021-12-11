@@ -31,6 +31,7 @@ public:
   // Destructor - deallocates children's book
   virtual ~ChildrensBook();
 
+  // Returns the author of the book
   string getAuthor() const;
 
   // Creates an Item that is a children's book
@@ -39,6 +40,7 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
+  // Sets the data of the item from the command file
   virtual void setCommandData(ifstream&);
 
   // operator<< helper
@@ -61,7 +63,7 @@ public:
   virtual bool operator<(const NodeData &) const;
 
 private:
-  string author;
+  string author; // Author of the book
 };
 
 #endif

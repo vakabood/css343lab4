@@ -8,7 +8,7 @@ using namespace std;
 
 //----------------------------------------------------------------------------
 // Default Constructor
-// Initialize the year, bookTitle and bookFormat
+// Initialize the year, bookTitle, genre, and bookFormat
 Book::Book() {
     year = 0;
     bookTitle = "";
@@ -24,7 +24,7 @@ Book::~Book() {
 
 //----------------------------------------------------------------------------
 // getYear
-// returns the year of the book
+// returns the year of publication of the book
 int Book::getYear() const{
     return year;
 }

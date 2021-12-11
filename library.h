@@ -21,13 +21,12 @@
 #include "itemFactory.h"
 #include "bintree.h"
 #include "hashtable.h"
-//#include "patronAction.h"
+#include "consts.h"
 
 // Only for class code, OK to use namespace
 using namespace std;
 
-const int MAX_GENRES = 26;
-//class PatronAction;
+//const int MAX_GENRES = 26;
 
 //---------------------------------------------------------------------------
 // Library class represents the collection of all the books, items, Patrons
@@ -39,21 +38,10 @@ public:
   // Destructor - deallocates library
   virtual ~Library();
 
-  // Adds item to the library database
-  //bool addItem(Item&);
-
   // Removes item from library database
   bool removeItem(Item&);
 
-  // Finds the item in library database
-  //Item* findItem(Item&) const;
-
-  // Adds a patron to library
-  //bool addPatron(Patron);
-
-  // Removes a patron from library
-  //bool removePatron(Patron);
-
+  // Checks if the Item is in the library. Returns the item if found. 
   Item* inLibrary(char, Item*&) const;
 
   // Mass build of library items using datafile
@@ -65,19 +53,21 @@ public:
   // Performs patron actions
   void performCommands(ifstream&);
 
+  // Display the inventory of the library
   void display() const;
 
   //getters
+  // returns the Patron with the given id
   Patron* getPatron(int) const;
 
 
 private:
-  BinTree itemTypes[MAX_GENRES];
+  BinTree itemTypes[MAX_GENRES]; // array of trees for each itemType
   HashTable libraryPatrons; // stores all the library patrons
   ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items
-  char itemType;
-  char actionType;
+  char itemType; // character representing itemType
+  char actionType; // character representing actionType
 };
 
 #endif

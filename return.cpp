@@ -53,16 +53,24 @@ bool Return::setData(Library *library, ifstream& infile) {
     // action. If tempItem is a nullptr, an error message is thrown. If the
     // item is valid, true will be returned. Else, false will be returned.
     associatedPatron = lib->getPatron(patronID);
+
+    // if associatedPatron is invalid, prints error
     if (associatedPatron == nullptr) {
         string temp;
         getline(infile, temp, '\n');
         cout << "ERROR: Patron with ID " << patronID << 
                     " doesn't exist." << endl;
         return false;
-    } else {
+    } else { // if associated patron is valid
+
+        // assigns itemType to the itemType to be returned
         infile >> itemType;
         ItemFactory itemfactory = ItemFactory();
+
+        // Creates the item using itemFactory
         tempItem = itemfactory.createIt(itemType, infile);
+
+        // if the item is invalid, prints error
         if (tempItem == nullptr) {
             cout << "ERROR: " << '\'' << itemType << '\'' << 
                         " is not a valid LibItem type." << endl;
@@ -70,13 +78,18 @@ bool Return::setData(Library *library, ifstream& infile) {
             getline(infile, temp, '\n');
             return false;
         } else {
+            // sets the command file data for the item
             tempItem->setCommandData(infile);
+
+            // checks if item is in library
             associatedItem = lib->inLibrary(itemType, tempItem);
+            // if the item is invalid, prints error
             if (associatedItem == nullptr) {
                 cout << "ERROR: " << associatedPatron->getName() << 
                     " tried to return " << '\'' << 
                     tempItem->getBookTitle() << '\'' <<
                     " - not found in catalog." << endl;
+                // returns false if item is not in library
                 return false;
             }
         }
@@ -86,12 +99,15 @@ bool Return::setData(Library *library, ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // perform
-// Performs the return action. Returns true if the return action is completed
-// and returns false if the return action could not be completed
+// Performs the return action. Returns true if the return action is 
+// completed and returns false if the return action could not be completed
 bool Return::perform() {
     if (associatedItem != nullptr) {
+        // if the item is okay to be returned, it is returned and true
+        // is returned
         if (associatedItem->getNumOfCopiesIn() < 5) {
             associatedItem->incrementCopies();
+            // adds return action to history of associatedPatron
             associatedPatron->addCommandToHistory(this);
             return true;
         } else {

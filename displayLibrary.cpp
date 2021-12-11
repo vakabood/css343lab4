@@ -23,7 +23,7 @@ DisplayLibrary::~DisplayLibrary() { }
 
 //---------------------------------------------------------------------------
 // create
-// Purpose: Creates the display history object
+// Purpose: Creates the DisplayLibrary object
 PatronAction* DisplayLibrary::create() const{
     return new DisplayLibrary();
 }
@@ -46,7 +46,7 @@ bool DisplayLibrary::setData(Library *library, ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // perform
-// Purpose: Displays the history of a patron
+// Purpose: Displays the contents of the library
 bool DisplayLibrary::perform() {
     lib->display();
     return false;

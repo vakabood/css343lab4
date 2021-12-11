@@ -19,9 +19,7 @@
 #include <vector>
 #include <string>
 
-
 class PatronAction;
-
 
 // Only for class code, OK to use namespace
 using namespace std;
@@ -29,8 +27,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 // Patron class represents a patron of the library
 class Patron {
-// << operator - prints class data to output stream
-//friend ostream & operator<<(ostream &, const Patron &);
 
 public:
 // Constructor
@@ -47,21 +43,26 @@ public:
 
   // Displays the patron's history
   virtual void displayHistory() const;
-
-  // operator<< helper
-  //virtual ostream displayHelper() const;
   
+  // patron equality operator
   virtual bool operator==(const Patron &) const;
+
+  // patron inequality operator
   virtual bool operator!=(const Patron &) const;
   
   // getters for class data
+  // returns the patronId
   int getPatronId() const;
+
+  // returns the name of the patron
   string getName() const;
+
+  // returns the action history of the patron
   vector<PatronAction*> getHistory() const;
 protected:
   vector<PatronAction*> history;   // the patron's past actions
   int patronId;    // unique 4 digit id number
-  string patronName;
+  string patronName; // name of the patron
 };
 
 #endif

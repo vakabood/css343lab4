@@ -20,10 +20,11 @@
 #include "displayHistory.h"
 #include "displayLibrary.h"
 #include "return.h"
+#include "consts.h"
 
 class PatronAction;
 
-const int MAX_COMMAND_TYPES = 26;
+//const int MAX_COMMAND_TYPES = 26;
 
 using namespace std;
 // Action Factory class is factory for creating different types of patron 

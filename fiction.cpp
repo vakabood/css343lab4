@@ -23,11 +23,14 @@ Fiction::~Fiction() { }
 
 //---------------------------------------------------------------------------
 // create()
-// Creates a fiction book object
+// Creates and returns a fiction book object
 Item* Fiction::create() const{
     return new Fiction();
 }
 
+//---------------------------------------------------------------------------
+// setData()
+// Sets the data of the Fiction object from the book data file
 void Fiction::setData(ifstream& infile) {
     infile.get();
     getline(infile, author, ',');
@@ -41,6 +44,7 @@ void Fiction::setData(ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // setCommandData()
+// Sets the data of the Fiction object from the command data file
 void Fiction::setCommandData(ifstream& inFile) {
     inFile.get();
     inFile >> bookFormat;

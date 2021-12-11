@@ -31,8 +31,6 @@ class Library;
 //---------------------------------------------------------------------------
 // PatronAction class represents actions a patron can take.
 class PatronAction {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const PatronAction &);
 
 public:
   // Constructor - Creates the PatronAction
@@ -59,10 +57,11 @@ public:
   // Performs the patron action
   virtual bool perform() = 0;
 
+  // returns the patron action type
   virtual string getAction() const;
 
 protected:
-  Library* lib;
+  Library* lib; // pointer to the library
   Patron* associatedPatron;  // the patron associated with the action
   Item* associatedItem;      // the item associated with the action
   string action;         // the type of action

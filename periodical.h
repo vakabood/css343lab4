@@ -31,6 +31,7 @@ public:
   // Destructor
   virtual ~Periodical();
 
+  // Returns month of publication
   int getMonth() const;
 
   // Creates an Item that is a periodical
@@ -39,25 +40,28 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
-    //sets the data of the periodical object
-    virtual void setCommandData(ifstream&);
+  //sets the data of the periodical object
+  virtual void setCommandData(ifstream&);
 
-    //Displays the data of the periodical book object without the number of
-    // copies
-    virtual void display() const;
+  //Displays the data of the periodical book object without the number of
+  // copies
+  virtual void display() const;
 
-    //Displays the data of the periodical book object with the number of copies
-    virtual void displayData() const;
+  //Displays the data of the periodical book object with the number of copies
+  virtual void displayData() const;
 
-    // Displays the headers
-    virtual void displayHeader() const;
+  // Displays the headers
+  virtual void displayHeader() const;
   
   // Comparison operators
+  // Returns true if the two periodicals are equal
   virtual bool operator==(const NodeData &) const;
+
+  // Returns true if the two periodicals are not equal
   virtual bool operator<(const NodeData &) const;
 
 private:
-  int month;
+  int month; // month of publication
 };
 
 #endif

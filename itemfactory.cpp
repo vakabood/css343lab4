@@ -21,7 +21,7 @@ ItemFactory::ItemFactory() {
 
 //---------------------------------------------------------------------------
 // Destructor
-// deletes the itemTemplates and sets them to null
+// deletes the itemTemplates and sets them to nullptr
 ItemFactory::~ItemFactory() {
     for (int i = 0; i < MAX_ITEM_TYPES; i++)
     {
