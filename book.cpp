@@ -6,6 +6,7 @@ using namespace std;
 Book::Book() {
     year = 0;
     bookTitle = "";
+    genre = "";
     bookFormat = 'H';
 }
 
@@ -36,12 +37,4 @@ string Book::getBookFormat() const{
     return bookFormat;
 }
 
-/*
-//------------------------------------------------------------------------------
-// operator<<
-// Displays book information
-ostream& operator<<(ostream& os, const Book& item) {
-    item.displayHelper(os);
-}
-*/
 

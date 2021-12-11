@@ -22,8 +22,6 @@ using namespace std;
 // Item class represents the items in a library.
 class Item : public NodeData {
 
-friend ostream & operator<<(ostream &, const Item &);
-
 public:
   // Constructor - Creates the Item object
   Item();
@@ -48,9 +46,10 @@ public:
   virtual void setData(ifstream&) = 0;
 
   virtual void setCommandData(ifstream&) = 0;
+
   virtual void display() const = 0;
-  // operator<< helper
-  //virtual void displayHelper(ostream &) const = 0;
+  
+  virtual void displayHeader() const = 0;
 
   virtual void displayData() const = 0;
 

@@ -20,8 +20,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 // ChildrensBook class represents a book from the children's book genre
 class ChildrensBook : public Book {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const ChildrensBook &);
 
 public:
   // Constructor - creates a children's book
@@ -46,6 +44,8 @@ public:
   virtual void display() const;
 
   virtual void displayData() const;
+
+  virtual void displayHeader() const;
   
   // == operator - returns if two  children's books are equal
   virtual bool operator==(const NodeData &) const;

@@ -54,16 +54,16 @@ public:
   //virtual bool setAssociatedItem(Item&);
 
   // Sets the data for the member variables
-  virtual void setData(Library*, ifstream&) = 0;
+  virtual bool setData(Library*, ifstream&) = 0;
 
   // operator<< helper
-  //virtual void displayItem() const = 0;
+  virtual void display() const = 0;
   
   // creates the patron action
   virtual PatronAction* create() const = 0;
 
   // Performs the patron action
-  virtual void perform() = 0;
+  virtual bool perform() = 0;
 
   virtual string getAction() const;
 

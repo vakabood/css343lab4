@@ -6,7 +6,9 @@
 //---------------------------------------------------------------------------
 // Constructor
 PatronAction::PatronAction() {
-    
+    associatedItem = nullptr;
+    associatedPatron = nullptr;
+    action = "";
 }
 
 //---------------------------------------------------------------------------

@@ -8,11 +8,14 @@
 DisplayHistory::DisplayHistory() {
     action = "DisplayHistory";
     associatedItem = nullptr;
+    associatedPatron = nullptr;
 }
 
 //---------------------------------------------------------------------------
 // Destructor
-DisplayHistory::~DisplayHistory() { }
+DisplayHistory::~DisplayHistory() {
+    
+}
 
 //---------------------------------------------------------------------------
 // create
@@ -21,20 +24,33 @@ PatronAction* DisplayHistory::create() const{
     return new DisplayHistory();
 }
 
+void DisplayHistory::display() const {
+    cout << action << endl;
+}
+
 //---------------------------------------------------------------------------
 // setData
-void DisplayHistory::setData(Library *library, ifstream& infile) {
+bool DisplayHistory::setData(Library *library, ifstream& infile) {
     this->lib = library;
     int patronID;
     infile >> patronID;
 
     associatedPatron = lib->getPatron(patronID);
+    if (associatedPatron == nullptr) {
+        //string temp;
+        //getline(infile, temp, '\n');
+        cout << "ERROR: Patron with ID " << patronID << 
+                    " doesn't exist." << endl;
+        return false;
+    }
+    return true;
 }
 
 //---------------------------------------------------------------------------
 // perform
 // Purpose: Displays the history of a patron
-void DisplayHistory::perform() {
+bool DisplayHistory::perform() {
     associatedPatron->displayHistory();
     associatedPatron->addCommandToHistory(this);
+    return true;
 }

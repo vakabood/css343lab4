@@ -34,13 +34,12 @@ public:
   virtual PatronAction* create() const;
 
   // Sets the data for the member variables
-  virtual void setData(Library*, ifstream&);
+  virtual bool setData(Library*, ifstream&);
   
-  // operator<< helper
-  //virtual ostream displayHelper() const;
+  virtual void display() const;
   
   // Performs the return action
-  virtual void perform();
+  virtual bool perform();
 
 private:
   char itemType;

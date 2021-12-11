@@ -20,8 +20,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 //Periodicals class represents the periodicals genre/subclass of the book object
 class Periodical : public Book {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const Periodical &);
 
 public:
   // Constructor
@@ -44,8 +42,7 @@ public:
 
   virtual void displayData() const;
 
-  // operator<< helper
-  //virtual void displayHelper(ostream &) const;
+  virtual void displayHeader() const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

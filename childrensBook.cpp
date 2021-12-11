@@ -4,6 +4,7 @@
 // Constructor
 ChildrensBook::ChildrensBook() : Book(){
     author = "";
+    genre = "CHILDREN";
     bookTitle = "";
     year = 0;
     bookFormat = 'H';
@@ -64,8 +65,8 @@ void ChildrensBook::setCommandData(ifstream& inFile) {
 // Displays the data of the ChildrensBook object
 void ChildrensBook::display() const{
     cout << left << 
-    setw(MAX_TITLE_LENGTH + 5) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
-    setw(MAX_AUTHOR_LENGTH) << 
+    setw(MAX_TITLE_LENGTH + 2) << bookTitle.substr(0, MAX_TITLE_LENGTH) << 
+    setw(MAX_AUTHOR_LENGTH + 2) << 
     author.substr(0, MAX_AUTHOR_LENGTH) << right << setw(8) << year << endl;
 }
 
@@ -91,17 +92,15 @@ bool ChildrensBook::operator==(const NodeData& bookToCompare) const {
     return bookTitle == book.bookTitle && author == book.author;
 }
 
-//------------------------------------------------------------------------------
-// operator<<
-// Displays book information
-ostream& operator<<(ostream& out, const ChildrensBook& item) {
-    out << left << item.numOfCopiesIn << setw(22) << item.author << setw(22) << item.bookTitle 
-    << setw(4) <<  item.year << setw(4) << item.bookFormat << endl;
-    return out;
-}
-
 void ChildrensBook::displayData() const {
     cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_TITLE_LENGTH + 5) <<
     bookTitle.substr(0, MAX_TITLE_LENGTH) << setw(MAX_AUTHOR_LENGTH) << 
     author.substr(0, MAX_AUTHOR_LENGTH) << right << setw(8) << year << endl;
+}
+
+void ChildrensBook::displayHeader() const {
+    cout << genre << " BOOKS" << endl;
+    cout << left << setw(7) << "AVAIL" << left << setw(MAX_TITLE_LENGTH + 5) <<
+    "TITLE" << setw(MAX_AUTHOR_LENGTH) << 
+    "AUTHOR" << right << setw(8) << "YEAR" << endl;
 }

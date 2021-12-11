@@ -21,8 +21,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 //Fiction class represents the fiction genre/subclass of the book object
 class Fiction : public Book {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const Fiction &);
 
 public:
   // Default constructor
@@ -43,8 +41,7 @@ public:
 
   virtual void displayData() const;
 
-  // operator<< helper
-  //virtual void displayHelper(ostream &) const;
+  virtual void displayHeader() const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

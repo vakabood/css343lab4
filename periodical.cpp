@@ -6,6 +6,7 @@
 // Constructor
 Periodical::Periodical() : Book() {
     bookTitle = "";
+    genre = "PERIODICAL";
     year = 0;
     month = 0;
     bookFormat = 'H';
@@ -91,15 +92,15 @@ bool Periodical::operator==(const NodeData& bookToCompare) const {
     return bookTitle == p->bookTitle && year == p->year && month == p->month;
 }
 
-//------------------------------------------------------------------------------
-// operator<<
-// Displays book information
-ostream& operator<<(ostream& os, const Periodical& item) {
-    return os;
-}
-
 void Periodical::displayData() const {
     cout << left << setw(7) << numOfCopiesIn << setw(8) << 
-    year << setw(5) << month << setw(MAX_TITLE_LENGTH) << 
+    year << setw(15) << month << left << setw(MAX_TITLE_LENGTH + 5) <<
     bookTitle.substr(0, MAX_TITLE_LENGTH) << endl;
+}
+
+void Periodical::displayHeader() const {
+    cout << genre << " BOOKS" << endl;
+    cout << left << setw(7) << "AVAIL" << left << setw(8) <<
+    "YEAR" << setw(15) << 
+    "MONTH" << left << setw(MAX_TITLE_LENGTH) << "TITLE" << endl;
 }

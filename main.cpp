@@ -4,6 +4,8 @@
 using namespace std;
 
 int main() {
+  cout << "//-----------------------------------" <<
+  "----------------------------------------" << endl;
   ifstream infile("data4books.txt");
   Library library;
 
@@ -14,6 +16,7 @@ int main() {
 
   ifstream infile3("data4commands.txt");
   library.performCommands(infile3);
-  
+  cout << "//-----------------------------------" <<
+  "----------------------------------------" << endl;
   return 0;
 } 

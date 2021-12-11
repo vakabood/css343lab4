@@ -326,8 +326,9 @@ void BinTree::arrayToBSTreeHelper(Node *& curr, NodeData * array[],
 // the tree and prints the data inorder.
 ostream& operator<<(ostream& output, const BinTree& treeToPrint) {
 	if (treeToPrint.isEmpty()){
-		output << "tree is empty" << endl;
+		output << "NO ITEMS IN THIS GENRE" << endl;
 	} else {
+        treeToPrint.root->data->displayHeader();
         treeToPrint.inorderHelper(treeToPrint.root);
         output << endl;
 	}

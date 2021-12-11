@@ -77,9 +77,15 @@ void Library::performCommands(ifstream& infile) {
         PatronAction* patronActionPtr = 
                 patronActionFactory.createIt(actionType, infile);
         if (patronActionPtr != nullptr) {
-            patronActionPtr->setData(this, infile);
-            patronActionPtr->perform();
-            delete patronActionPtr;
+            bool success = patronActionPtr->setData(this, infile);
+            if (success) {
+                bool actionSuccess = patronActionPtr->perform();
+                if (!actionSuccess) {
+                    delete patronActionPtr;
+                }
+            } else {
+                delete patronActionPtr;
+            }
         } else {
             cout << "ERROR: " << '\'' << actionType << '\'' 
             << " is not a valid action" << endl;
@@ -105,6 +111,9 @@ Patron* Library::getPatron(int patronId) const {
 Item* Library::inLibrary(char itemType, Item*& target) const {
     NodeData* targetData = nullptr;
     bool success = itemTypes[itemType - 'A'].retrieve(*target, targetData);
-
-    return (Item*)targetData;
+    
+    if (success) {
+       return (Item*)targetData;
+    }
+    return nullptr;
 }

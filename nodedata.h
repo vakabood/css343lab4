@@ -25,6 +25,8 @@ public:
    virtual void display() const = 0;
 
    virtual void displayData() const = 0;
+
+   virtual void displayHeader() const = 0;
    
 private:
   // operator<< helper

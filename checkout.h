@@ -32,13 +32,15 @@ public:
   virtual ~Checkout();
 
   // Sets the data for the member variables
-  virtual void setData(Library*, ifstream&);
+  virtual bool setData(Library*, ifstream&);
 
   // Creates a PatronAction that is a checkout
   virtual PatronAction* create() const;
 
   // Performs the checkout
-  virtual void perform();
+  virtual bool perform();
+
+  virtual void display() const;
 
 private:
   char itemType;

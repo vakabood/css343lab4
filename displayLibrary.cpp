@@ -22,16 +22,21 @@ PatronAction* DisplayLibrary::create() const{
     return new DisplayLibrary();
 }
 
+void DisplayLibrary::display() const {
+    return;
+}
+
 //---------------------------------------------------------------------------
 // setData
-void DisplayLibrary::setData(Library *library, ifstream& infile) {
+bool DisplayLibrary::setData(Library *library, ifstream& infile) {
     this->lib = library;
-    return;
+    return true;
 }
 
 //---------------------------------------------------------------------------
 // perform
 // Purpose: Displays the history of a patron
-void DisplayLibrary::perform() {
+bool DisplayLibrary::perform() {
     lib->display();
+    return false;
 }

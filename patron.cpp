@@ -11,7 +11,12 @@ Patron::Patron() {
 
 //---------------------------------------------------------------------------
 // Destructor
-Patron::~Patron() { }
+Patron::~Patron() { 
+    for (int i = 0; i < (int)history.size(); i++) {
+        delete history[i];
+        history[i] = nullptr;
+    }
+}
 
 //---------------------------------------------------------------------------
 // setData
@@ -39,16 +44,16 @@ void Patron::displayHistory() const {
 
     if (!history.empty()) {
         for (int i = 0; i < (int)history.size(); i++) {
-            cout << history[i]->getAction() << " ";
-            if (history[i]->getAssociatedItem() != nullptr) {
-                history[i]->getAssociatedItem()->display();
-            }
+            if (history[i] != nullptr) {
+                history[i]->display();
+            }// breaking in this loop
         }
         cout << endl;
     }
     else {
         cout << patronName << " does not have a history" << endl;
     }
+    
 }
 //---------------------------------------------------------------------------
 // operator==
