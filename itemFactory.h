@@ -1,13 +1,15 @@
 //---------------------------------------------------------------------------
 // ITEM_FACTORY.H
 // Class ItemFactory 
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // ItemFactory class: 
 //      -- Follows the factory design pattern
 //      -- Factory design pattern is used for creating families of related 
 //            or dependent objects without specifying their concrete classes
 //      -- Creates the desired item
+// Assumptions:
+//      -- NONE
 //---------------------------------------------------------------------------
 #ifndef _ITEM_FACTORY_H
 #define _ITEM_FACTORY_H

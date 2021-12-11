@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 // LIBRARY.H
 // Class library reads off a file and builds a library and patrons in it.
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Library class: contains all the books, items, and Patrons.
 //               -- able to add and remove items/patrons from the library.
@@ -10,6 +10,7 @@
 //
 // Assumptions/implementation:
 //      -- data files to read exist
+//      -- data files are formatted correctly
 //---------------------------------------------------------------------------
 #ifndef _LIBRARY_H
 #define _LIBRARY_H
@@ -75,7 +76,7 @@ private:
   HashTable libraryPatrons; // stores all the library patrons
   ActionFactory patronActionFactory;  // factory to create patron actions
   ItemFactory libraryItemFactory;   // factory to create library items
-  char bookType;
+  char itemType;
   char actionType;
 };
 

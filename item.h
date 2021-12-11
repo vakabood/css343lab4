@@ -1,11 +1,15 @@
 //---------------------------------------------------------------------------
 // ITEM.H
 // Class Item represents an item from the library
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
-// Fiction class: 
+// Item class:
 //      -- Represents an item from the library
 //      -- Derived from nodedata
+// Assumptions and Implementations:
+//      -- Pure virtual most functions for implementations in subclasses.
+//      -- Increase, decrease, get number of copies in the library and number
+//         of copies that were checked out.
 //---------------------------------------------------------------------------
 #ifndef _ITEM_H
 #define _ITEM_H
@@ -29,12 +33,16 @@ public:
   // Destructor - Deallocates the Item object
   virtual ~Item();
 
+  // Increases the number of copies by 1
   void incrementCopies();
 
+  // Decreases the number of copies by 1
   void decrementCopies();
 
+  // Returns the number of copies in the library
   int getNumOfCopiesIn();
 
+  //Returns the number of copies checked out
   int getNumOfCopiesOut();
 
   // creates an item

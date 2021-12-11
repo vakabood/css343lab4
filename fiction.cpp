@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------
+// FICTION.CPP
+// Class Fiction represents the fiction genre of a book
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "fiction.h"
 
 //---------------------------------------------------------------------------
@@ -53,7 +58,8 @@ void Fiction::setCommandData(ifstream& inFile) {
 void Fiction::display() const {
     cout << left << setw(MAX_AUTHOR_LENGTH + 2) 
     << author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 2) << 
-    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year << endl;
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year
+    << endl;
 }
 
 //---------------------------------------------------------------------------
@@ -80,12 +86,24 @@ bool Fiction::operator==(const NodeData& bookToCompare) const {
     return author == book.author && bookTitle == book.bookTitle;
 }
 
+//------------------------------------------------------------------------------
+// displayData
+// Displays book information
+// prints out the number of copies in the library, the author name, the book
+// title, and the year.
 void Fiction::displayData() const {
-    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_AUTHOR_LENGTH) <<
-    author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) << 
-    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year << endl;
+    cout << left << setw(7) << numOfCopiesIn << left << setw(MAX_AUTHOR_LENGTH)
+    << author.substr(0, MAX_AUTHOR_LENGTH) << setw(MAX_TITLE_LENGTH + 5) <<
+    bookTitle.substr(0, MAX_TITLE_LENGTH) << right << setw(8) << year
+    << endl;
 }
 
+//------------------------------------------------------------------------------
+// displayHeader
+// Displays the headers
+// prints out the genre books on the first line to inform what kind of genre
+// it is printing. Then it prints out "AVAIL" "AUTHOR" "TITLE" and "YEAR"
+// evenly above the data to make it look clearer
 void Fiction::displayHeader() const {
     cout << genre << " BOOKS" << endl;
     cout << left << setw(7) << "AVAIL" << left << setw(MAX_AUTHOR_LENGTH) <<

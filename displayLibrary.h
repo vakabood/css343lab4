@@ -1,12 +1,14 @@
 //---------------------------------------------------------------------------
 // DISPLAY_LIBRARY.H
 // Class DisplayLibrary displays all the contents of the library
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
-// DisplayLibrary class: 
+// DisplayLibrary class:
 //      -- Displays all the media in the library grouped in categories
 //      -- Displayed in a sorted order
 //      -- Derived from PatronAction
+// Assumption:
+//      -- DisplayLibrary is read from the text
 //---------------------------------------------------------------------------
 #ifndef _DISPLAYLIBRARY_H
 #define _DISPLAYLIBRARY_H

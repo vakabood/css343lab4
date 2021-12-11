@@ -1,11 +1,13 @@
 //---------------------------------------------------------------------------
 // BOOK.H
 // Class Book represents a book
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Book class: 
 //      -- Represents a book in the library
 //      -- Derived from Item
+// Assumptions:
+//      -- The format in the texts are correct
 //---------------------------------------------------------------------------
 #ifndef _BOOK_H
 #define _BOOK_H

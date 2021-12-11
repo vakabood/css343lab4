@@ -1,4 +1,17 @@
 //---------------------------------------------------------------------------
+// HASHTABLE.H
+// Class HashTable represents the storage of Patrons
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
+// HashTable class:
+//      -- Represents the storage of Patrons
+// Assumptions and Implementations:
+//      -- Add function which adds a patron to the hashtable
+//      -- hash function that returns the index of the Patron based on their
+//      patron ID passed in the parameter
+//      -- get function returns a Patron pointer based on the patron ID
+//      passed into the parameter
+//---------------------------------------------------------------------------
 #ifndef _HASHTABLE_H
 #define _HASHTABLE_H
 

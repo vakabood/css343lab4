@@ -1,10 +1,15 @@
 //---------------------------------------------------------------------------
+// _PATRON_ACTION.CPP
+// Class PatronAction is a support class of Patron.
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 
 #include "patronAction.h"
 #include "library.h"
 
 //---------------------------------------------------------------------------
 // Constructor
+// Initializes associatedItem, associatedPatron, and action
 PatronAction::PatronAction() {
     associatedItem = nullptr;
     associatedPatron = nullptr;
@@ -13,6 +18,7 @@ PatronAction::PatronAction() {
 
 //---------------------------------------------------------------------------
 // Destructor
+// Nothing to do
 PatronAction::~PatronAction() { }
 
 //---------------------------------------------------------------------------
@@ -29,6 +35,9 @@ Item* PatronAction::getAssociatedItem() const{
     return associatedItem;
 }
 
+//-----------------------------------------------------------------------------
+// getAction
+// Returns string action
 string PatronAction::getAction() const {
     return action;
 }

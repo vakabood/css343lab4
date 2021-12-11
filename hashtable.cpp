@@ -1,4 +1,8 @@
 //---------------------------------------------------------------------------
+// HASHTABLE.CPP
+// Class HashTable represents the storage of Patrons
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "patron.h"
 #include "hashtable.h"
 
@@ -36,6 +40,7 @@ bool HashTable::add(Patron* patron) {
         || patron->getPatronId() > MAX_ID) {
         return false;
     }
+    //If the patron ID is already available
     if (table[hash(patron->getPatronId())] != nullptr) {
         cout << "Patron already exists" << endl;
         delete patron;

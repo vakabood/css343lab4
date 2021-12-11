@@ -1,3 +1,8 @@
+//---------------------------------------------------------------------------
+// LIBRARY.H
+// Class library reads off a file and builds a library and patrons in it.
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "library.h"
 
 //------------------------------------------------------------------------------
@@ -17,25 +22,25 @@ Library::~Library()
 
 //------------------------------------------------------------------------------
 // buildLibrary
-// Purpose: Builds the library of books from the input file. 
-// Description: Parses through the input file, and creates a book object for 
+// Purpose: Builds the library of items from the input file.
+// Description: Parses through the input file, and creates a item object for
 // each line using the ItemFactory.createIt() function. Then, uses the setData
-// function for that specific item to set the data for each book. Then, adds
-// that book to the appropriate BinTree that matches the itemType in the array
+// function for that specific item to set the data for each item. Then, adds
+// that item to the appropriate BinTree that matches the itemType in the array
 // of BinTrees. 
 void Library::buildLibrary(ifstream& infile) {
     for (;;) {
-        infile >> bookType;
+        infile >> itemType;
 
         if (infile.eof()) {
             break;
         }
-        Item* itemPtr = libraryItemFactory.createIt(bookType, infile);
+        Item* itemPtr = libraryItemFactory.createIt(itemType, infile);
 
         if (itemPtr != nullptr) {
             itemPtr->setData(infile);
 
-            bool success = itemTypes[bookType - 'A'].insert(itemPtr);
+            bool success = itemTypes[itemType].insert(itemPtr);
             if (!success) {
                 delete itemPtr;
             }
@@ -73,7 +78,7 @@ void Library::performCommands(ifstream& infile) {
         if (infile.eof()) {
             break;
         }
-        
+
         PatronAction* patronActionPtr = 
                 patronActionFactory.createIt(actionType, infile);
         if (patronActionPtr != nullptr) {
@@ -93,6 +98,9 @@ void Library::performCommands(ifstream& infile) {
     }
 }
 
+//------------------------------------------------------------------------------
+// display
+// prints out each index in itemTypes if they are not empty
 void Library::display() const {
     for (int i = 0; i < MAX_GENRES; i++) {
         if (!itemTypes[i].isEmpty()) {
@@ -108,6 +116,10 @@ Patron* Library::getPatron(int patronId) const {
     return libraryPatrons.get(patronId);
 }
 
+//-----------------------------------------------------------------------------
+// inLibrary
+// Checks to see if the item from the parameters is in the library.
+// Returns the Item pointer if there is and nullptr if there isnt.
 Item* Library::inLibrary(char itemType, Item*& target) const {
     NodeData* targetData = nullptr;
     bool success = itemTypes[itemType - 'A'].retrieve(*target, targetData);

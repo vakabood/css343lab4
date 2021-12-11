@@ -1,9 +1,8 @@
-/** A Binary Search Tree object
- * @author Abood Vakil
- * @file bintree.cpp
- * @class CSS343
- * Assignment 2
- */
+//---------------------------------------------------------------------------
+// BINTREE.H
+// Class bintree creates a binary tree
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 
 #include "bintree.h"
 
@@ -13,32 +12,6 @@
 BinTree::BinTree() {
     root = nullptr;
 }
-
-/*
-//----------------------------------------------------------------------------
-// Copy Constructor
-// @param treeToCopy: The tree to copy
-// Creates a copy of the tree given as a parameter.
-BinTree::BinTree(const BinTree &treeToCopy) {
-	copyTreeHelper(treeToCopy.root, root);
-}
-
-
-// @note This function is called by the = assignment operator as well 
-// as the copy constructor.
-void BinTree::copyTreeHelper(Node * treeToCopy, Node *& newRoot) {
-	if (treeToCopy != nullptr) {
-		newRoot = new Node();
-		NodeData *newData = new NodeData(*treeToCopy->data);
-		newRoot->data = newData;
-
-		copyTreeHelper(treeToCopy->left, newRoot->left);
-		copyTreeHelper(treeToCopy->right, newRoot->right);
-	} else {
-		newRoot = nullptr;
-	}
-}
-*/
 
 //----------------------------------------------------------------------------
 // Destructor

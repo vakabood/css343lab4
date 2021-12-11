@@ -1,11 +1,14 @@
 //---------------------------------------------------------------------------
 // DISPLAY_HISTORY.H
 // Class DisplayHistory 
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // DisplayHistory class: 
 //      -- Displays history of patron's actions
 //      -- Derived from PatronAction
+// Assumptions:
+//      -- The text format was correct
+//      -- displayHistory is read in the text
 //---------------------------------------------------------------------------
 
 #ifndef _DISPLAY_HISTORY_H
@@ -21,8 +24,6 @@ using namespace std;
 //---------------------------------------------------------------------------
 // DisplayHistory class represents the history of actions a patron has taken
 class DisplayHistory : public PatronAction {
-// << operator - prints class data to output stream
-friend ostream & operator<<(ostream &, const DisplayHistory &);
 
 public:
   // Constructor - Creates a new DisplayHistory object
@@ -37,6 +38,7 @@ public:
   // Sets the data of the member variables
   virtual bool setData(Library *, ifstream&);
 
+  // Displays the history
   virtual void display() const;
   
   // Prints out the history of actions

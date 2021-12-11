@@ -1,10 +1,13 @@
-
+//---------------------------------------------------------------------------
+// ITEM_FACTORY.CPP
+// Class ItemFactory
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "itemFactory.h"
 
 //---------------------------------------------------------------------------
-
-//---------------------------------------------------------------------------
 // Constructor
+// Set the the values in the itemTemplates to the items accordingly
 ItemFactory::ItemFactory() {
     for (int i = 0; i < MAX_ITEM_TYPES; i++)
     {
@@ -18,6 +21,7 @@ ItemFactory::ItemFactory() {
 
 //---------------------------------------------------------------------------
 // Destructor
+// deletes the itemTemplates and sets them to null
 ItemFactory::~ItemFactory() {
     for (int i = 0; i < MAX_ITEM_TYPES; i++)
     {
@@ -30,6 +34,7 @@ ItemFactory::~ItemFactory() {
 }
 
 //---------------------------------------------------------------------------
+// createIt
 // Creates an item based on the item type
 Item* ItemFactory::createIt(char ch, istream& infile) const{
     int index = hash(ch);

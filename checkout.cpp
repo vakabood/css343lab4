@@ -1,10 +1,15 @@
 //---------------------------------------------------------------------------
+// CHECKOUT.H
+// Class Checkout checks out an item from the library
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 
 #include "checkout.h"
 #include "library.h"
 
 //---------------------------------------------------------------------------
 // Consructor
+// Initializes action and sets associatedItem to nullptr
 Checkout::Checkout() {
     action = "CheckOut";
     tempItem = nullptr;
@@ -13,6 +18,7 @@ Checkout::Checkout() {
 
 //---------------------------------------------------------------------------
 // Destructor
+// deletes associatedItem
 Checkout::~Checkout() {
     delete tempItem;
 }
@@ -24,6 +30,10 @@ PatronAction* Checkout::create() const {
     return new Checkout();
 }
 
+//---------------------------------------------------------------------------
+// display
+// Prints action and displays associatedItem which contains the data as long
+// as it is not empty
 void Checkout::display() const {
     cout << action << "  ";
     if (associatedItem != nullptr) {
@@ -37,15 +47,18 @@ void Checkout::display() const {
 bool Checkout::setData(Library *library, ifstream& infile) {
     this->lib = library;
     infile >> patronID;
-    associatedPatron = lib->getPatron(patronID);
-
-    if (associatedPatron == nullptr) {
+    associatedPatron = lib->getPatron(patronID); //getPatron in library.cpp
+    if (associatedPatron == nullptr) {  //checks if the patron exists
         string temp;
         getline(infile, temp, '\n');
         cout << "ERROR: Patron with ID " << patronID << 
                     " doesn't exist." << endl;
         return false;
     } else {
+        //if associatedPatron exists, it reads the text file and calls the
+        // createIt function to create a tempItem which is used to do the
+        // action. If tempItem is a nullptr, an error message is thrown. If the
+        // item is valid, true will be returned. Else, false will be returned
         infile >> itemType;
         ItemFactory itemfactory = ItemFactory();
         tempItem = itemfactory.createIt(itemType, infile);
@@ -72,7 +85,8 @@ bool Checkout::setData(Library *library, ifstream& infile) {
 
 //---------------------------------------------------------------------------
 // perform
-// Performs the checkout action
+// Performs the checkout action. Returns true if the checkout action is
+// completed and returns false if the checkout action could not be completed
 bool Checkout::perform() {
     if (associatedItem != nullptr) {
         if (associatedItem->getNumOfCopiesIn() > 0) {

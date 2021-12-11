@@ -2,7 +2,7 @@
 // PATRON.H
 // Class patron is the subclass of Person and it focuses on the patrons of
 // the library.
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Patron class: can call the history of the patron using their patronId.
 //        Derived from Person
@@ -39,10 +39,13 @@ public:
   // Destructor
   virtual ~Patron();
 
+  // Sets the data for the patron
   virtual void setData(ifstream&);
 
+  // Adds a command to the patron's history
   virtual void addCommandToHistory(PatronAction*);
 
+  // Displays the patron's history
   virtual void displayHistory() const;
 
   // operator<< helper

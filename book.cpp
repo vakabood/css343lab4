@@ -1,8 +1,14 @@
+//---------------------------------------------------------------------------
+// BOOK.H
+// Class Book represents a book
+// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+//---------------------------------------------------------------------------
 #include "book.h"
 using namespace std;
 
 //----------------------------------------------------------------------------
 // Default Constructor
+// Initialize the year, bookTitle and bookFormat
 Book::Book() {
     year = 0;
     bookTitle = "";

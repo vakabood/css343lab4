@@ -1,10 +1,13 @@
 //---------------------------------------------------------------------------
 // _PERIODICAL_H
 // Class Periodical is the subclass of Book.
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Periodical class: contains operator functions for sorting purposes.
 //          Derived from Book
+// Assumptions:
+//      -- The text is formatted correctly when reading
+//      -- The genre is a periodical book
 //---------------------------------------------------------------------------
 #ifndef _PERIODICAL_H
 #define _PERIODICAL_H
@@ -36,13 +39,18 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
-  virtual void setCommandData(ifstream&);
+    //sets the data of the periodical object
+    virtual void setCommandData(ifstream&);
 
-  virtual void display() const;
+    //Displays the data of the periodical book object without the number of
+    // copies
+    virtual void display() const;
 
-  virtual void displayData() const;
+    //Displays the data of the periodical book object with the number of copies
+    virtual void displayData() const;
 
-  virtual void displayHeader() const;
+    // Displays the headers
+    virtual void displayHeader() const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

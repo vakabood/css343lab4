@@ -1,11 +1,14 @@
 //---------------------------------------------------------------------------
 // CHILDRENSBOOK.H
 // Class ChildrensBook represents a book from the children's book genre
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
-// ChildrensBook class: 
+// ChildrensBook class:
 //      -- stores information regarding a children's book
 //      -- Derived from Book
+// Assumptions:
+//      -- The text is formatted correctly when reading
+//      -- The genre is a childrens book
 //---------------------------------------------------------------------------
 #ifndef _CHILDRENSBOOK_H
 #define _CHILDRENSBOOK_H
@@ -41,10 +44,13 @@ public:
   // operator<< helper
   //virtual void displayHelper(ostream &) const;
 
+  //Displays the data of the childrens book object without the number of copies
   virtual void display() const;
 
+  //Displays the data of the childrens book object with the number of copies
   virtual void displayData() const;
 
+  // Displays the headers
   virtual void displayHeader() const;
   
   // == operator - returns if two  children's books are equal

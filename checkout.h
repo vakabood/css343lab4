@@ -8,6 +8,9 @@
 //      -- Updates the library database
 //      -- Updates the patron's history
 //      -- Derived from PatronAction
+// Assumptions:
+//      -- The text format is correct
+//      -- The action is checkout
 //---------------------------------------------------------------------------
 
 #ifndef _CHECKOUT_H
@@ -40,6 +43,7 @@ public:
   // Performs the checkout
   virtual bool perform();
 
+  // displays the checkout
   virtual void display() const;
 
 private:

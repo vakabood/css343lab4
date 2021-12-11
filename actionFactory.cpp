@@ -1,10 +1,15 @@
 //---------------------------------------------------------------------------
+// ACTION_FACTORY.CPP
+// Class ActionFactory creates different types of patron actions
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 
 #include "actionFactory.h"
 #include "patronAction.h"
 
 //---------------------------------------------------------------------------
 // Constructor
+// Creates an action factory
 ActionFactory::ActionFactory() {
     for (int i = 0; i < MAX_COMMAND_TYPES; i++) {
         actionTemplates[i] = nullptr;
@@ -18,6 +23,7 @@ ActionFactory::ActionFactory() {
 
 //---------------------------------------------------------------------------
 // Destructor
+// Deallocates the action factory
 ActionFactory::~ActionFactory() {
     for (int i = 0; i < MAX_COMMAND_TYPES; i++) {
         if (actionTemplates[i] != nullptr) {
@@ -28,7 +34,9 @@ ActionFactory::~ActionFactory() {
 }
 
 //---------------------------------------------------------------------------
+// createIt
 // Creates an action object based on the command type
+// returns the PatronAction array with the action character added into it
 PatronAction* ActionFactory::createIt(char ch, istream& infile) const{
     int index = hash(ch);
     if (actionTemplates[index] == nullptr) {
@@ -41,6 +49,8 @@ PatronAction* ActionFactory::createIt(char ch, istream& infile) const{
 
 //---------------------------------------------------------------------------
 // hash
+// function returns an int that corresponds to the char from the parameter's
+// index
 int ActionFactory::hash(char ch) const {
     return ch - 'A';
 }

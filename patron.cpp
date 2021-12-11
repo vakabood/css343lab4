@@ -1,9 +1,15 @@
 //---------------------------------------------------------------------------
+// PATRON.CPP
+// Class patron is the subclass of Person and it focuses on the patrons of
+// the library.
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "patron.h"
 #include "patronAction.h"
 
 //---------------------------------------------------------------------------
 // Constructor
+// Initializes patronName and patronID
 Patron::Patron() {
     patronName = "";
     patronId = 0;
@@ -11,6 +17,7 @@ Patron::Patron() {
 
 //---------------------------------------------------------------------------
 // Destructor
+// deletes history using a loop
 Patron::~Patron() { 
     for (int i = 0; i < (int)history.size(); i++) {
         delete history[i];
@@ -41,20 +48,19 @@ void Patron::addCommandToHistory(PatronAction* action) {
 // Description: Displays the patron's history
 void Patron::displayHistory() const {
     cout << patronId << " " << patronName << ":" << endl;
-
     if (!history.empty()) {
         for (int i = 0; i < (int)history.size(); i++) {
             if (history[i] != nullptr) {
                 history[i]->display();
-            }// breaking in this loop
+            }
         }
         cout << endl;
     }
     else {
         cout << patronName << " does not have a history" << endl;
     }
-    
 }
+
 //---------------------------------------------------------------------------
 // operator==
 // Description: Compares two patrons by their id

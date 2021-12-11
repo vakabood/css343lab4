@@ -1,13 +1,15 @@
 //---------------------------------------------------------------------------
 // ACTION_FACTORY.H
 // Class ActionFactory creates different types of patron actions
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
-// ActionFactory class: 
+// ActionFactory class:
 //      -- Follows the Factory design pattern
-//      -- Factory design pattern is used for creating families of related 
+//      -- Factory design pattern is used for creating families of related
 //            or dependent objects without specifying their concrete classes
-//      -- Creates the desired patron action 
+//      -- Creates the desired patron action
+// Assumptions:
+//      -- The commands text is correctly formatted
 //---------------------------------------------------------------------------
 
 #ifndef _ACTION_FACTORY_H
@@ -38,8 +40,8 @@ public:
   PatronAction* createIt(char, istream &) const;
   
 private:
-  PatronAction* actionTemplates[MAX_COMMAND_TYPES];  // array of template actions that can 
-                                      //    be performed
+  PatronAction* actionTemplates[MAX_COMMAND_TYPES]; // array of template
+                                                // actions that can be performed
   
   // hashing function to identify the key of the action that needs to be 
   //    created

@@ -1,3 +1,9 @@
+//---------------------------------------------------------------------------
+// NODEDATA.CPP
+// Class nodedata is the super class that mimics Object (it is all
+// encompassing).
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
 #include "nodedata.h"
 
 //----------------------------------------------------------------------------

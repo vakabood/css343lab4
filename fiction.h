@@ -1,11 +1,14 @@
 //---------------------------------------------------------------------------
 // FICTION.H
 // Class Fiction represents the fiction genre of a book
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // Fiction class: 
 //      -- Represents the fiction genre of a book
 //      -- Derived from book
+// Assumptions:
+//      -- The text is formatted correctly when reading
+//      -- The genre is a fiction book
 //---------------------------------------------------------------------------
 #ifndef _FICTION_H
 #define _FICTION_H
@@ -35,13 +38,17 @@ public:
   // Sets the data for the member variables
   virtual void setData(ifstream&);
 
+  //sets the data of the fiction object
   virtual void setCommandData(ifstream&);
-  
-  virtual void display() const;
 
-  virtual void displayData() const;
+    //Displays the data of the fiction book object without the number of copies
+    virtual void display() const;
 
-  virtual void displayHeader() const;
+    //Displays the data of the fiction book object with the number of copies
+    virtual void displayData() const;
+
+    // Displays the headers
+    virtual void displayHeader() const;
   
   // Comparison operators
   virtual bool operator==(const NodeData &) const;

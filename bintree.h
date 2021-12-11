@@ -1,9 +1,17 @@
-/** A Binary Search Tree object
- * @author Abood Vakil
- * @file bintree.h
- * @class CSS343
- * Assignment 2
- */
+//---------------------------------------------------------------------------
+// BINTREE.H
+// Class bintree creates a binary tree
+// Author: Shashank Chennapragada, Abood Vakil
+//---------------------------------------------------------------------------
+// bintree class:
+//      A rooted binary tree data structure. Each node has a left and right
+//      child, and a data item. Each node store data that is greater than all
+//      data in the left subtree and less than all data in the right subtree.
+// Implementation and Assumptions:
+//      -- The data in each node is unique.
+//      -- Implemented using pointers to nodes.
+//      -- NodeData class is already fully implemented
+//---------------------------------------------------------------------------
 
 #ifndef _BINTREE_H_
 #define _BINTREE_H_
@@ -13,20 +21,6 @@
 
 using namespace std;
 
-//---------------------------------------------------------------------------
-/**
- * 
- * Binary Search Tree Class: A rooted binary tree data structure. Each node 
- * has a left and right child, and a data item. Each node store data that is 
- * greater than all data in the left subtree and less than all data in the
- * right subtree.
- * 
- * Implementation and assumptions:
- * -- The data in each node is unique.
- * -- Implemented using pointers to nodes.
- * -- NodeData class is already fully implemented
- */
-
 
 class BinTree {
    // overloaded << operator: prints out the tree inorder. (calls recursive
@@ -35,11 +29,7 @@ class BinTree {
 
 public:
     // default constructor: no parameters, constructs an empty tree
-	BinTree();		
-
-    // copy constructor: one parameter, constructs a tree that is a copy of 
-    // the parameter				
-	//BinTree(const BinTree &);		
+	BinTree();
 
     // destructor: empties and deallocates the tree	
 	~BinTree();						
@@ -85,8 +75,6 @@ private:
 
     // private member functions for the BinTree class (all recursive helpers)
     void inorderHelper(Node*) const;  // recursive inorder traversal helper
-    //void copyTreeHelper(Node*, Node*&);  // recursive copyTree helper for copy
-                                   // constructor and assignment operator  
     void emptyTreeHelper(Node*);   // recursive emptyTree helper for 
                                    // destructor and makeEmpty
     void retrieveHelper(Node*, const NodeData &, 

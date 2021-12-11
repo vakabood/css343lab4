@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 // _PATRON_ACTION.H
 // Class PatronAction is a support class of Patron.
-// Author: Shashank Chennapragada, Abood Vakil, Khushaal Kurswani
+// Author: Shashank Chennapragada, Abood Vakil
 //---------------------------------------------------------------------------
 // PatronAction class: contains all the functions/actions a patron can do.
 //               -- has the getters and setters for associated patron and
@@ -44,14 +44,8 @@ public:
   // Getter - gets the associated Patron
   virtual Patron* getAssociatedPatron() const;
 
-  // Setter - sets the associated patron
-  //virtual bool setAssociatedPatron(Patron);
-
   // Getter - gets the associated item
   virtual Item* getAssociatedItem() const;
-
-  // Setter - sets the associated item
-  //virtual bool setAssociatedItem(Item&);
 
   // Sets the data for the member variables
   virtual bool setData(Library*, ifstream&) = 0;
